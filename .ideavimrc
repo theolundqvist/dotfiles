@@ -1,0 +1,6 @@
+ set relativenumber number
+ :set scrollopt+=hor
+:set scrollopt-=ver
+:set nowrap
+:1split
+:windo set scrollbind

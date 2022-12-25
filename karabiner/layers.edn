@@ -1,0 +1,380 @@
+{
+
+ ;; this is a little bit weird, but it's convenient
+    ;; the rule [:!Ca :!T1]
+    ;; means from command a to control 1
+    ;; :!Ca is keycode :a and prefix a with !C
+
+    ;; here's the definition
+
+    ;; !  | means mandatory
+    ;; #  | means optional
+    ;; C  | left_command
+    ;; T  | left_control
+    ;; O  | left_option
+    ;; S  | left_shift
+    ;; F  | fn
+    ;; Q  | right_command
+    ;; W  | right_control
+    ;; E  | right_option
+    ;; R  | right_shift
+    ;; P  | caps_lock
+    ;; !! | mandatory command + control + optional + shift (hyper)
+    ;; ## | optional any
+
+    ;; examples
+
+    ;; !CTSequal_sign  | mandatory command control shift =
+    ;;                 | which is command control +
+    ;; !O#Sright_arrow | mandatory option optional any right_arrow
+
+    ;; karabiner definition of mandatory and optional
+    ;; https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/from/modifiers/
+
+    ;; rule [<from> <to>]
+    ;; if simplified modifier is used in <to>, optional(#) definition will be
+    ;; ignored.
+
+
+
+  :templates {
+      :open "open -a '%s'"                                ;; :open "Safari"
+      ;; :openApp "open \"%s\""                              ;; :open "/Applications/Safari.app"
+      ;; :applescript "osascript '/Users/theo/Library/Mobile Documents/com~apple~ScriptEditor2/Documents/%s'"
+      ;;                                                     ;; Full path to user's 'iCloud Drive/Script Editor'
+      ;;                                                     ;; You can't use '~' for the users home directory
+      ;; :type "osascript -e 'tell application \"System Events\" to keystroke \"%s\" as text'"
+      ;; :beep "osascript -e 'beep'"                         ;; Play default beep
+      ;; :purr "afplay /System/Library/Sounds/Purr.aiff"     ;; Play the Purr sound
+      ;; :tink "afplay /System/Library/Sounds/Tink.aiff"     ;; Play the Tink sound
+  } ;; templates
+  
+  
+  ;; :applications {                                         ;; Get the app id: `osascript -e 'id of app "VSCodium"'`
+  ;;     :chrome "/Applications/Firefox.app"
+  ;;     :safari "/Applications/Safari.app"
+  ;;     :firefox "/Applications/Firefox.app"
+  ;;     :finder "/Applications/Firefox.app"
+  ;;     :term "/Applications/iTerm.app"
+  ;;     :code ["^com\\.visualstudio\\.code\\.oss$"
+  ;;            "^com\\.microsoft\\.VSCode(Insiders)?$"
+  ;;            "^com\\.microsoft\\.VSCode?"]
+  ;; }
+
+
+    :profiles {
+      :Default { :default true
+          :sim     50     ;; simultaneous_threshold_milliseconds (def: 50)
+                          ;; keys need to be pressed within this threshold to be considered simultaneous
+          :delay   500    ;; to_delayed_action_delay_milliseconds (def: 500)
+                          ;; basically it means time after which the key press is count delayed
+          :alone   500    ;; to_if_alone_timeout_milliseconds (def: 1000)
+                          ;; hold for 995ms and single tap registered; hold for 1005ms and seen as modifier
+          :held    1000   ;; to_if_held_down_threshold_milliseconds (def: 500)
+                          ;; key is fired twice when 500 ms is elapsed (otherwise seen as a hold command)
+      }
+  } ;; profiles
+
+;;  :devices {
+;;            :sculpt-keyboard [{:product_id 1957 :vendor_id 1118}]
+;;            }
+
+
+;; layers are basically "hyper" keys
+;; press this in combination with something else and depending on your rule, make things happen
+:layers {
+    :caps_mode {:key :caps_lock :alone {:key :escape}} ;; make the caps_lock key the hyper key
+                                                        ;; In "System Preferences/Keyboard/Modifier Keys..."
+                                                        ;; the Caps Lock Key is set to "No Action".
+} ;; layers
+
+
+;; simlayers are basically "hyper" keys
+;; layers works too, but only recommended for non-typing keys like . or tab
+;; to use more regular typing keys, use simlayers
+:simlayers {
+  :o-mode {:key :o}
+  :f-mode {:key :f}    ; delimeters    ( ) [ ] { } and other symbols ~ $ &
+  :d-mode {:key :d}    ; arithmetic    + - * / = % < > #
+  :s-mode {:key :s}    ; punctuation   ? ! : ; ' " ` ~
+  :a-mode {:key :a}    ; navigation hjkl + tab + enter + page down/up
+  ;
+  :q-mode {:key :q}    ; General shortcuts (browser etc.) - not settled
+  :w-mode {:key :w}    ; Selection left and right (letter, word, line)
+  :e-mode {:key :e}    ; Movement left and right (letter, word, line)
+  :r-mode {:key :r}    ; Deletion left and right (letter, word, line)
+  ;
+  :g-mode {:key :g}    ; Mouse scroll, desktop left-right, zoom in-out, screenshot (not implemented)
+  ;
+  :v-mode {:key :v}    ; Number pad with + - BS ENTER as well
+  :c-mode {:key :c}    ; Slashes and lines  ^ | \ _ @
+  :x-mode {:key :x}    ; Some multi-character shortcuts like <= (not implemented)
+
+} ;; simlayers
+
+ :main [
+
+
+
+    ;;{:des "..."                                       ;; -> description
+    ;; :rules[
+    ;;          [<from>  <to>  <conditions>]            ;; -> rule 1
+    ;;          [<from>  <to>  <conditions>]            ;; -> rule 2
+    ;; ]}
+
+    ;; rule [:period ["period-mode" 1] nil {:afterup ["period-mode" 0] :alone :period}]
+    ;;       |_____| |_______________| |_| |_________________________________________|
+    ;;        <from>    <to>      <conditions>         <other options>
+
+
+  {:des "capslock layer"
+  :rules [
+      :caps_mode
+          ; VIM MODE - hold caps and HJKL
+          ; home row computing
+          [:##h :left_arrow] ; even with f, still do left arrow
+          [:##k :up_arrow]
+          [:##j :down_arrow]
+          [:##l :right_arrow]
+
+          [:##spacebar :return_or_enter]
+          
+
+          [:##d :left_shift]
+          ]}
+
+
+      {:des "o-key shortcuts (example)"                   ; Hold 'o' + extra key
+      :rules [ :o-mode
+          [:a "open -a Arc"]                           ; 's' - Open Safari
+          [:c "open -a 'Visual Studio Code'"]                           ; 's' - Open Safari
+          [:t [:open "Alacritty"]]                            ; 't' - Open term
+          [:d [:open "Discord"]] 
+          [:y "open -a finder ~/Downloads"]
+          [:f "open -a firefox"]
+          ;; [:r "open -a rider"]
+          
+
+          ;; [:t [[:type "Moi,oet Grunn!"]]]                 ; 't' - Type some text
+          ;; [:b [:beep]]                                    ; 'b' - beep
+          ;; [:p [:purr]]                                    ; 'p' - play "Purr"
+          ;; [:k [:tink]]                                    ; 'k' - play "Tink"
+      ]
+      }
+
+
+      {:des "d-mode, digits and backspace on h"                   ; Hold 'o' + extra key
+
+      :rules [ :d-mode
+              [:##h :delete_or_backspace]
+              [:##l :delete_forward]
+
+      ]
+      }
+
+
+
+
+
+
+
+
+
+      {:des "f-mode for delimeters and ! ? $"
+      :rules [:f-mode
+              ;; u i j k m comma -> !Sopen_bracket !Sclose_bracket !S9 !S0 open_bracket close_bracket
+              [:##u :!S8]     ;;(
+              [:##i :!S9]     ;;)
+              [:##j :!WR8]    ;;{ 
+              [:##k :!WR9]    ;;}
+              [:##m :!W8]     ;;[
+              [:##comma :!W9] ;;]
+
+              [:##o :!S1]       ;; !
+              [:##l :!Shyphen]  ;; ?
+              [:##period :!W4]  ;; $
+             ]
+      }
+
+
+
+
+
+
+
+    ;; Borrowed and modified from kchen0x/k-goku, interesting feature, not sure how and when to use it.
+    ;; Hyperkey (caps_lock) + arrow key to move the cursor
+    ;; Hyperkey (caps_lock) + shift + arrow key to move the cursor at half the speed
+    ;; Hyperkey (caps_lock) + left_shift + left_control + arrow key to move the cursor at quarter the speed
+    ;; Hyperkey + return for mouse button 1
+    ;; Hyperkey + command + return for mouse button 2
+    {:des "Hyper Mode mousekey movement (left_shift or left_shift + left_control reduce the speed)"
+     :rules [ :caps_mode
+        [:down_arrow {:mkey {:y 1200}}]
+        [:up_arrow {:mkey {:y -1200}}]
+        [:left_arrow {:mkey {:x -1200}}]
+        [:right_arrow {:mkey {:x 1200}}]
+        [:!Sdown_arrow {:mkey {:y 600}}]
+        [:!Sup_arrow {:mkey {:y -600}}]
+        [:!Sleft_arrow {:mkey {:x -600}}]
+        [:!Sright_arrow {:mkey {:x 600}}]
+        [:!TSdown_arrow {:mkey {:y 300}}]
+        [:!TSup_arrow {:mkey {:y -300}}]
+        [:!TSleft_arrow {:mkey {:x -300}}]
+        [:!TSright_arrow {:mkey {:x 300}}]
+        [:return_or_enter {:pkey :button1}]
+        [:!Creturn_or_enter {:pkey :button2}]
+     ]
+    }
+
+
+        ;; {:des "Swap Win and Alt on Sculpt keyboard"
+        ;;  :rules [:sculpt-keyboard
+        ;;          [:left_option :left_command]
+        ;;          [:left_command :left_option]
+        ;;          [:right_option :right_command]
+        ;;          [:application :right_option]
+        ;;          ]
+        ;;  }
+
+
+
+        ;; {:des "f-mode for delimeters and ! ? $"
+        ;;  :rules [:f-mode
+        ;;          ;; u i j k m comma -> !Sopen_bracket !Sclose_bracket !S9 !S0 open_bracket close_bracket
+        ;;          [:##u :!Sopen_bracket]
+        ;;          [:##i :!Sclose_bracket]
+        ;;          [:##j :!S9]
+        ;;          [:##k :!S0]
+        ;;          [:##m :open_bracket]
+        ;;          [:##comma :close_bracket]
+        ;;          ;; o l period -> !S1 !Sslash !S4
+        ;;          [:##o :!S1]
+        ;;          [:##l :!Sslash]
+        ;;          [:##period :!S4]
+        ;;         ]
+        ;;  }
+
+        ;; {:des "d-mode for arithmetic"    ;;    < > #    + - =    * / %
+        ;;  :rules [:d-mode
+        ;;           [:##u     :!Scomma]               ; d -> o        <
+        ;;           [:##i    :!Speriod]               ; d -> p        >
+        ;;           [:##o         :!S3]               ; d -> o        #
+
+        ;;           [:##j         :!Sequal_sign]      ; d -> j        +
+        ;;           [:##k         :hyphen]            ; d -> k        -
+        ;;           [:##l         :equal_sign]        ; d -> l        =
+
+        ;;           [:##m :!S8]                       ; d -> m        *
+        ;;           [:##comma :slash]                 ; d -> ,        /
+        ;;           [:##period :!S5]                  ; d -> .        %
+        ;;         ]
+        ;;  }
+
+        ;; {:des "s-mode for punctuation"   ;;    ' " `    , . &    ; : ~
+        ;;  :rules [:s-mode
+        ;;          [:##u :quote]
+        ;;          [:##i :!Squote]
+        ;;          [:##o :grave_accent_and_tilde]
+        ;;          [:##j :comma]
+        ;;          [:##k :period]
+        ;;          [:##l :!S7]
+        ;;          [:##m :semicolon]
+        ;;          [:##comma :!Ssemicolon]
+        ;;          [:##period :!Sgrave_accent_and_tilde]
+        ;;         ]
+        ;;  }
+
+        ;; {:des "a-mode for hjkl movement and nm enter and ui tab and ,. PageDn/Up"
+        ;;  :rules [:a-mode
+        ;;           [:##h :left_arrow]
+        ;;           [:##j :down_arrow]
+        ;;           [:##k :up_arrow]
+        ;;           [:##l :right_arrow]
+        ;;           [:##n :return_or_enter]
+        ;;           [:##m :return_or_enter]
+        ;;           [:##u :tab]
+        ;;           [:##i :tab]
+        ;;           [:comma :page_down]
+        ;;           [:period :page_up]
+        ;;         ]
+        ;;  }
+
+        ;; {:des "r-mode for deleting characters with ui, words with jk and lines with hl"
+        ;;  :rules [:r-mode
+        ;;           [:##u :delete_or_backspace]   ; r -> j   Delete word backwards
+        ;;           [:##i :delete_forward]        ; r -> j   Delete word backwards
+        ;;           [:##j :!Odelete_or_backspace] ; r -> j   Delete word backwards
+        ;;           [:##k :!Odelete_forward]      ; r -> k   Delete word forwards
+        ;;           [:##h :!Cdelete_or_backspace] ; r -> h   Delete to beginning of line
+        ;;           [:##l :!Cdelete_forward]      ; r -> l   Delete to end of line
+        ;;         ]
+        ;;  }
+
+        ;; {:des "e-mode allows for easy back and forth one character, word or line"
+        ;;  :rules [:e-mode
+        ;;           [:##u         :left_arrow]          ; e -> u    Left
+        ;;           [:##i         :right_arrow]         ; e -> i    Right
+        ;;           [:##j         :!Oleft_arrow]        ; e -> j    Opt+Left
+        ;;           [:##k         :!Oright_arrow]       ; e -> k    Opt+Right
+        ;;           [:##h         :!Cleft_arrow]        ; e -> h    Cmd+Left
+        ;;           [:##l         :!Cright_arrow]       ; e -> l    Cmd+Right
+        ;;           [:n           :return_or_enter]     ; e -> n    Enter
+        ;;           [:m           :return_or_enter]     ; e -> m    Enter
+        ;;         ]
+        ;;  }
+
+        ;; {:des "w-mode = e-mode + SHIFT (i.e. selection, not just movement)"
+        ;;  :rules [:w-mode
+        ;;           [:##u         :!Sleft_arrow]         ; e -> u    Shift+Left
+        ;;           [:##i         :!Sright_arrow]        ; e -> i    Shift+Right
+        ;;           [:##j         :!SOleft_arrow]        ; e -> j    Shift+Opt+Left
+        ;;           [:##k         :!SOright_arrow]       ; e -> k    Shift+Opt+Right
+        ;;           [:##h         :!SCleft_arrow]        ; e -> h    Shift+Cmd+Left
+        ;;           [:##l         :!SCright_arrow]       ; e -> l    Shift+Cmd+Right
+        ;;         ]
+        ;;  }
+
+        ;; {:des "q-mode for general shortcuts like browser tab navigation"
+        ;;  :rules [:q-mode
+        ;;           [:##j :!CSopen_bracket]  ; q -> j    tab to the left:  Cmd-{
+        ;;           [:##k :!CSclose_bracket] ; q -> k    tab to the right: Cmd-}
+        ;;           [:##l :!TCf           ]  ; q -> l    toggle full screen: ^⌘F
+        ;;           [:##u :!Cclose_bracket]  ; q -> u    browser back:     Cmd-[
+        ;;           [:##i :!Cclose_bracket]  ; q -> i    browser forward:  Cmd-]
+        ;;           [:##o :f2             ]  ; q -> o    F2 (useful in Excel)
+        ;;           [:##p :f4             ]  ; q -> p    F4 (useful in Excel)
+        ;;         ]
+        ;;  }
+
+        ;; {:des "v-mode for number pad"
+        ;;  :rules [:v-mode
+        ;;          [:u :7]
+        ;;          [:i :8]
+        ;;          [:o :9]
+        ;;          [:j :4]
+        ;;          [:k :5]
+        ;;          [:l :6]
+        ;;          [:m :1]
+        ;;          [:comma :2]
+        ;;          [:period :3]
+        ;;          [:p :!Sequal_sign]
+        ;;          [:semicolon :hyphen]
+        ;;          [:slash :return_or_enter]
+        ;;          [:y :delete_or_backspace]
+        ;;          [:h :period]
+        ;;          [:n :0]
+        ;;         ]
+        ;; }
+
+        ;; {:des "c-mode for remaining symbols ^ | \\ _ @"
+        ;;  :rules [:c-mode
+        ;;          [:##u :!S6]
+        ;;          [:##j :!Sbackslash]
+        ;;          [:##k :!S2]
+        ;;          [:##m :backslash]
+        ;;          [:##comma :!Shyphen]
+        ;;         ]
+        ;; }
+ ]
+}

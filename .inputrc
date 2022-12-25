@@ -1,0 +1,7 @@
+set completion-ignore-case on
+set expand-tilde on
+set convert-meta off
+set input-meta on
+set output-meta on
+set show-all-if-ambiguous off
+set visible-stats on
