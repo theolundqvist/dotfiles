@@ -1,5 +1,6 @@
 *.swp
-.tmux/plugins/tpm
+tmux/plugins
+.tmux/plugins
 .npm/
 .nuget/
 .vscode/

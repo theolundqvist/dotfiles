@@ -6,7 +6,7 @@
 export PATH="/usr/local/opt/python@3.11/bin:$PATH"
 CONF="$HOME/.config"
 
-tmux source $CONF/.tmux.conf
+# tmux source $CONF/tmux/tmux.conf
 
 
 
@@ -14,7 +14,7 @@ tmux source $CONF/.tmux.conf
 # PLUGINS 
 
 # VI MODE
-source $CONF/zsh/zsh-vim.zsh
+#source $CONF/zsh/zsh-vim.zsh
 
 
 # RELOAD ALL SYMLINKS
@@ -24,16 +24,16 @@ alias reload_sym="find $HOME -maxdepth 1 -type l -delete; ln -s $CONF/.* $HOME"
 
 
 
-
 # ALIASES
 
 # PROFILE
 alias vyabai="nvim $CONF/.yabairc"
 alias vskhd="nvim $CONF/skhd/skhdrc"
+alias reload_wm="brew services restart yabai; brew services restart skhd"
 alias vzsh="nvim $CONF/.zshrc"
 alias valacritty="nvim $CONF/.config/alacritty/alacritty.yml"
 alias conf="cd $CONF"
-alias reload='source ~/.zshrc && echo "zsh profile reloaded correctly" || echo "Syntax error, could not import the file"';
+alias reload="source $CONF/.zshrc && echo 'zsh profile reloaded correctly' || echo 'Syntax error, could not import the file'";
 alias todo="v ~/Documents/TODO.md"
 
 alias vkarabiner="nvim $CONF/karabiner/layers.edn"
@@ -174,7 +174,8 @@ function git() {
 
 
 
-
+# zoxide
+eval "$(zoxide init zsh)"
 
 
 
