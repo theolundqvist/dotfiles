@@ -1,7 +1,5 @@
 {
-
  ;; this is a little bit weird, but it's convenient
-    ;; the rule [:!Ca :!T1]
     ;; means from command a to control 1
     ;; :!Ca is keycode :a and prefix a with !C
 
@@ -83,7 +81,7 @@
 ;; layers are basically "hyper" keys
 ;; press this in combination with something else and depending on your rule, make things happen
 :layers {
-    :caps_mode {:key :caps_lock :alone {:key :escape}} ;; make the caps_lock key the hyper key
+  :caps_mode {:key :caps_lock :alone {:key :escape}} ;; make the caps_lock key the hyper key
                                                         ;; In "System Preferences/Keyboard/Modifier Keys..."
                                                         ;; the Caps Lock Key is set to "No Action".
 } ;; layers
@@ -136,11 +134,18 @@
           [:##k :up_arrow]
           [:##j :down_arrow]
           [:##l :right_arrow]
+          [:##q :1]
+          [:##w :2]
+          [:##e :3]
+          [:##r :4]
+          [:##f :5]
+          [:##g :6]
+          [:##u :7]
+          [:##i :8]
+          [:##o :9]
+          [:##p :0]
 
           [:##spacebar :return_or_enter]
-          
-
-          [:##d :left_shift]
           ]}
 
 
@@ -163,14 +168,14 @@
       }
 
 
-      {:des "d-mode, digits and backspace on h"                   ; Hold 'o' + extra key
-
-      :rules [ :d-mode
-              [:##h :delete_or_backspace]
-              [:##l :delete_forward]
-
-      ]
-      }
+      ; {:des "d-mode, digits and backspace on h"                   ; Hold 'o' + extra key
+      ;
+      ; :rules [ :d-mode
+      ;         [:##h :delete_or_backspace]
+      ;         [:##l :delete_forward]
+      ;
+      ; ]
+      ; }
 
 
 
@@ -190,8 +195,8 @@
               [:##m :!W8]     ;;[
               [:##comma :!W9] ;;]
 
-              [:##o :!S1]       ;; !
-              [:##l :!Shyphen]  ;; ?
+              [:##o :!ES7]       ;; \
+              [:##l :!S7]  ;; /
               [:##period :!W4]  ;; $
              ]
       }

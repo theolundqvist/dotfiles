@@ -27,6 +27,7 @@ function start_apps {
   open -a 'Discord';
   open -a 'Messenger';
   open -a 'Messages'
+  open -a 'Spotify'
 }
 
 
@@ -81,12 +82,12 @@ function yabai_setup_desktop_env {
   yabai -m rule --remove "X.4"
   yabai -m rule --remove "X.5"
   yabai -m rule --remove "X.6"
-  yabai -m rule --add label="X.1" app="^Alacritty$" space=^1
-  yabai -m rule --add label="X.2" app="^Arc$" space=1
-  yabai -m rule --add label="X.3" app="^Messenger$" space=3
-  yabai -m rule --add label="X.4" app="^Discord$" space=3
-  yabai -m rule --add label="X.5" app="^Messages$" space=3
-  yabai -m rule --add label="X.6" app="^Spotify$" space=4 
+  yabai -m rule --add label="X.1" app="^Alacritty$" space=^1 display=2
+  yabai -m rule --add label="X.2" app="^Arc$" space=1 display=2
+  yabai -m rule --add label="X.3" app="^Messenger$" space=3 display=2
+  yabai -m rule --add label="X.4" app="^Discord$" space=3 display=2
+  yabai -m rule --add label="X.5" app="^Messages$" space=3 display=2
+  yabai -m rule --add label="X.6" app="^Spotify$" space=4 display=2
   # yabai -m rule --add app="^Music$" space=5
 }
 

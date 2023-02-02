@@ -1,4 +1,7 @@
 *.swp
+iterm2/
+configstore/
+stripe/
 tmux/plugins
 .tmux/plugins
 .npm/

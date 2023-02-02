@@ -1,8 +1,6 @@
 
-main: $(CONFIG_FILE)
-	export GOKU_EDN_CONFIG_FILE=$(CONFIG_FILE) && goku
 
-live: $(CONFIG_FILE)
+main: $(CONFIG_FILE)
 	export GOKU_EDN_CONFIG_FILE=$(CONFIG_FILE) && goku
 
 install:
