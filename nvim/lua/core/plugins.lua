@@ -313,6 +313,11 @@ local astro_plugins = {
     setup = function() astronvim.lazy_load_commands("neovim-session-manager", "SessionManager") end,
     config = function() require "configs.session_manager" end,
   },
+  
+  -- Copilot
+  ["github/copilot.vim"] = { },
+  --
+  ["nvim-treesitter/nvim-treesitter-context"] = {}
 }
 
 if astronvim.updater.snapshot then

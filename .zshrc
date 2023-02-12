@@ -21,11 +21,19 @@ CONF="$HOME/.config"
 setopt extendedglob
 alias reload_sym="find $HOME -maxdepth 1 -type l -delete; ln -s $CONF/.* $HOME"
 
-
-
+# TMUX
+alias tn='tmux new -s `basename $PWD`'
+alias ta='tmux attach'
+# ~/.tmux/plugins
+export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+# ~/.config/tmux/plugins
+export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 
 # ALIASES
 
+# COPY PASTE
+alias cpc="pbcopy < "
+alias pc="pbpaste > "
 # PROFILE
 alias vyabai="nvim $CONF/.yabairc"
 alias vskhd="nvim $CONF/skhd/skhdrc"
