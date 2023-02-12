@@ -26,4 +26,4 @@ borg/security
 .fig.dotfiles.bak
 firebase-tools.json
 *credential*
-
+.DS_Store
