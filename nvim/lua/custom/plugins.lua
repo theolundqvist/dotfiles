@@ -76,11 +76,6 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
   },
-
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
-  },
   {
     "hrsh7th/nvim-cmp",
      dependencies = {
@@ -92,6 +87,10 @@ local plugins = {
       },
     },
     opts=overrides.cmp
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = overrides.nvimtree,
   },
 
   -- Install a plugin

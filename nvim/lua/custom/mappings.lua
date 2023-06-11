@@ -7,6 +7,8 @@ M.general = {
   },
 }
 
+
+
 M.nvimtree = {
   n = {
     ["<leader>e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle nvimtree" },

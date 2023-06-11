@@ -54,6 +54,14 @@ M.nvimtree = {
       },
     },
   },
+  on_attach = function(bufnr)
+    local function opts(desc)
+      return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
+    local api = require("nvim-tree.api")
+    api.config.mappings.default_on_attach(bufnr)
+    vim.keymap.set("n",".", api.tree.change_root_to_node, opts("change root to node"))
+  end
 }
 
 -- copilot completion support
