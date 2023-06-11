@@ -2209,7 +2209,7 @@
                     "treat_as_built_in_keyboard": false
                 },
                 {
-                    "disable_built_in_keyboard_if_exists": false,
+                    "disable_built_in_keyboard_if_exists": true,
                     "fn_function_keys": [],
                     "identifiers": {
                         "is_keyboard": true,
@@ -2219,7 +2219,18 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": [],
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "non_us_backslash"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "grave_accent_and_tilde"
+                                }
+                            ]
+                        }
+                    ],
                     "treat_as_built_in_keyboard": false
                 },
                 {
@@ -2421,16 +2432,6 @@
             },
             "selected": true,
             "simple_modifications": [
-                {
-                    "from": {
-                        "key_code": "grave_accent_and_tilde"
-                    },
-                    "to": [
-                        {
-                            "key_code": "non_us_backslash"
-                        }
-                    ]
-                },
                 {
                     "from": {
                         "key_code": "right_command"

@@ -1,7 +1,7 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+zmodload zsh/zprof
 # Fig pre block. Keep at the top of this file.
-# 
 
 export PATH="/usr/local/opt/python@3.11/bin:$PATH"
 CONF="$HOME/.config"
@@ -15,7 +15,14 @@ CONF="$HOME/.config"
 
 # VI MODE
 #source $CONF/zsh/zsh-vim.zsh
-
+setInitialKeyRepeat ()
+{ 
+defaults write -g InitialKeyRepeat -int $1 # normal minimum is 15 (225 ms)
+}
+setKeyRepeat ()
+{
+defaults write -g KeyRepeat -int $1 # normal minimum is 2 (30 ms)
+}
 
 # RELOAD ALL SYMLINKS
 setopt extendedglob
@@ -24,6 +31,7 @@ alias reload_sym="find $HOME -maxdepth 1 -type l -delete; ln -s $CONF/.* $HOME"
 # TMUX
 alias tn='tmux new -s `basename $PWD`'
 alias ta='tmux attach'
+alias td='tmux detach'
 # ~/.tmux/plugins
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 # ~/.config/tmux/plugins
@@ -56,7 +64,7 @@ alias javav='java --version'
 
 
 # DIRECTORIES
-alias aws="cd ~/Documents/Bridgestars/aws && ls"
+#alias aws="cd ~/Documents/Bridgestars/aws && ls"
 alias doc="cd ~/Documents && doc"
 alias cs="cd ~/Documents/courses/current && ls"
 alias bridge="cd ~/Documents/Bridgestars/lib"
@@ -81,6 +89,7 @@ alias update="brew update && brew upgrade && mas upgrade"
 alias week="date +%V"
 
 # GIT
+alias gweb="gh repo view --web"
 alias gpull="git pull"
 alias gpush="git push"
 alias gpushupstream="git push --set-upstream origin"
@@ -192,30 +201,28 @@ eval "$(zoxide init zsh)"
 
 
 
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 zstyle ':completion:\*' matcher-list 'm:{a-z}={A-Za-z}'
 
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/theo/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/theo/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/theo/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/theo/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # Fig post block. Keep at the bottom of this file.
 # ##  POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 # eval "$(starship init zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+function conda-enable()
+{
+  source "$CONF/zsh/conda-setup.sh"
+}
+#
+# Load Angular CLI autocompletion.
+source <(ng completion script)
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

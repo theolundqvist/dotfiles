@@ -38,16 +38,16 @@ alt - r : yabai -m space --rotate 90
 alt - f : yabai -m window --toggle zoom-fullscreen
 
 # alt - s : yabai -m window --toggle 
-alt - s : yabai -m window --toggle sticky;\
-          yabai -m window --toggle topmost;\
-          yabai -m window --toggle pip
+# alt - s : yabai -m window --toggle sticky;\
+#           yabai -m window --toggle topmost;\
+#           yabai -m window --toggle pip
 
 # toggle padding and gap
 alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
 # float / unfloat window and center on screen
 alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2
+          yabai -m window --grid 6:4:1:1:2:4 #rows:cols:start-x:start-y:width:height
 
 # toggle window split type
 alt - e : yabai -m window --toggle split
@@ -123,11 +123,13 @@ ctrl + alt + shift - 0x1B : yabai -m space --gap rel:10
 
 
 # Decrease padding (+)
-ctrl + alt + cmd - 0x18 : yabai -m space --padding rel:-20:-20:-20:-20
+ctrl + alt + cmd - 0x18 : yabai -m space --padding rel:-10:-10:-10:-10
 # Increase gap (+)
 ctrl + alt + shift - 0x18 : yabai -m space --gap rel:-10
 
 # "Focus" mode
+alt + ctrl - g : yabai_set_padding 150
+alt + shift + ctrl - g : yabai_set_padding 10
 ctrl + alt + cmd - 0 : yabai -m space --padding abs:24:20:20:20
 ctrl + alt + cmd - 9 : yabai -m space --padding abs:50:50:50:50
 ctrl + alt + cmd - 8 : yabai -m space --padding abs:150:150:150:150
@@ -186,5 +188,8 @@ resize < cmd - l : yabai -m window --move rel:25:0
 
 # Restart yabai
 shift + alt + ctrl - r : brew services restart yabai
-
+# Toggle yabai
+shift + alt + ctrl - a : yabai -m space --layout bsp
+shift + alt + ctrl - s : yabai -m space --layout stack 
+shift + alt + ctrl - f : yabai -m space --layout float 
 
