@@ -1,4 +1,5 @@
 ---@type MappingsTable
+--
 local M = {}
 
 M.disabled = {
@@ -24,7 +25,12 @@ M.disabled = {
       ["<leader>ra"] = "",
       ["<leader>rn"] = "",
       ["<leader>pt"] = "",
-      ["<leader>gt"] = "",
+      ["<leader>wa"] = "",
+      ["<leader>wr"] = "",
+      ["<leader>wt"] = "",
+      ["<leader>wl"] = "",
+      ["<leader>wk"] = "",
+      ["<leader>wK"] = "",
     },
   }
 
@@ -45,10 +51,10 @@ M.general = {
   n = {
     ["<Esc>"] = { ":noh <CR>", "Clear highlights" },
     -- switch between windows
-    ["<C-h>"] = { "<C-w>h", "Window left" },
-    ["<C-l>"] = { "<C-w>l", "Window right" },
-    ["<C-j>"] = { "<C-w>j", "Window down" },
-    ["<C-k>"] = { "<C-w>k", "Window up" },
+    -- ["<C-h>"] = { "<C-w>h", "Window left" },
+    -- ["<C-l>"] = { "<C-w>l", "Window right" },
+    -- ["<C-j>"] = { "<C-w>j", "Window down" },
+    -- ["<C-k>"] = { "<C-w>k", "Window up" },
 
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
@@ -76,10 +82,12 @@ M.general = {
 
   t = {
     ["<esc>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
-    ["C-w>h"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>h", true, true, true)},
-    ["C-w>j"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>j", true, true, true)},
-    ["C-w>k"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>k", true, true, true)},
-    ["C-w>l"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>l", true, true, true)},
+    ["<C-w>h"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>h", true, true, true)},
+    ["<C-w>j"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>j", true, true, true)},
+    ["<C-w>k"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>k", true, true, true)},
+    ["<C-w>l"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>l", true, true, true)},
+    ["<C-w>q"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>q", true, true, true)},
+    ["<C-w>"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>", true, true, true), "window"},
   },
 
   v = {
@@ -384,19 +392,19 @@ M.whichkey = {
   plugin = true,
 
   n = {
-    ["<leader>wK"] = {
-      function()
-        vim.cmd "WhichKey"
-      end,
-      "Which-key all keymaps",
-    },
-    ["<leader>wk"] = {
-      function()
-        local input = vim.fn.input "WhichKey: "
-        vim.cmd("WhichKey " .. input)
-      end,
-      "Which-key query lookup",
-    },
+    -- ["<leader>wK"] = {
+    --   function()
+    --     vim.cmd "WhichKey"
+    --   end,
+    --   "Which-key all keymaps",
+    -- },
+    -- ["<leader>wk"] = {
+    --   function()
+    --     local input = vim.fn.input "WhichKey: "
+    --     vim.cmd("WhichKey " .. input)
+    --   end,
+    --   "Which-key query lookup",
+    -- },
   },
 }
 
