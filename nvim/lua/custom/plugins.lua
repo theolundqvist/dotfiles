@@ -23,23 +23,23 @@ local plugins = {
   {
     "zbirenbaum/copilot-cmp",
     event = "InsertEnter",
-    after = {"copilot.lua"},
+    after = { "copilot.lua" },
     config = function()
       require("copilot_cmp").setup {
 
-            formatters = {
-                  label = require("copilot_cmp.format").format_label_text,
-                  insert_text = require("copilot_cmp.format").format_insert_text,
-                  insert_text = require("copilot_cmp.format").remove_existing,
-                  preview = require("copilot_cmp.format").deindent,
-              },
-              mapping = {
-                  ["<CR>"] = cmp.mapping.confirm({
-                      -- this is the important line
-                      behavior = cmp.ConfirmBehavior.Replace,
-                      select = false,
-                  }),
-              }
+        formatters = {
+          label = require("copilot_cmp.format").format_label_text,
+          insert_text = require("copilot_cmp.format").format_insert_text,
+          insert_text = require("copilot_cmp.format").remove_existing,
+          preview = require("copilot_cmp.format").deindent,
+        },
+        mapping = {
+          ["<CR>"] = cmp.mapping.confirm {
+            -- this is the important line
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = false,
+          },
+        },
       }
     end,
     -- dependencies = {
@@ -78,7 +78,7 @@ local plugins = {
   },
   {
     "hrsh7th/nvim-cmp",
-     dependencies = {
+    dependencies = {
       {
         "zbirenbaum/copilot-cmp",
         config = function()
@@ -86,11 +86,43 @@ local plugins = {
         end,
       },
     },
-    opts=overrides.cmp
+    opts = overrides.cmp,
   },
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
+  },
+  {
+    "folke/which-key.nvim",
+    keys = { "<leader>", '"', "'", "`", "c", "v" },
+    init = function()
+      require("core.utils").load_mappings "whichkey"
+    end,
+    disable = false,
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "whichkey")
+      require("which-key").setup(opts)
+      local present, wk = pcall(require, "which-key")
+      if not present then
+        return
+      end
+      wk.register {
+        -- add group
+        ["<leader>"] = {
+          g = { name = "+Git" },
+          l = { name = "+LSP" },
+          s = { name = "+Search" },
+          t = { name = "+Term" },
+          tn = { name = "+New" },
+          r = { name = "+Refactor"},
+          n = {name ="Line Numbers"},
+          w = {name ="Workspace"},
+        },
+      }
+    end,
+    setup = function()
+      require("core.utils").load_mappings "whichkey"
+    end,
   },
 
   -- Install a plugin

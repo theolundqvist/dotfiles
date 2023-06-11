@@ -13,5 +13,10 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.volar.setup{
+  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+}
+lspconfig.tailwindcss.setup{}
+
 -- 
 -- lspconfig.pyright.setup { blabla}
