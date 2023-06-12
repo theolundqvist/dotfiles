@@ -10,7 +10,19 @@ local plugins = {
     event = "InsertEnter",
     config = function()
       require("copilot").setup {
-        suggestion = { enabled = true, auto_trigger = true },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<leader>a",
+            accept_word = false,
+            accept_line = false,
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+          },
+        },
         panel = { enabled = false },
         filetypes = {
           javascript = true, -- allow specific filetype
@@ -20,34 +32,34 @@ local plugins = {
       }
     end,
   },
-  {
-    "zbirenbaum/copilot-cmp",
-    event = "InsertEnter",
-    after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup {
-
-        formatters = {
-          label = require("copilot_cmp.format").format_label_text,
-          insert_text = require("copilot_cmp.format").format_insert_text,
-          insert_text = require("copilot_cmp.format").remove_existing,
-          preview = require("copilot_cmp.format").deindent,
-        },
-        mapping = {
-          ["<CR>"] = cmp.mapping.confirm {
-            -- this is the important line
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = false,
-          },
-        },
-      }
-    end,
-    -- dependencies = {
-    --   {
-    --     "zbirenbaum/copilot.lua"
-    --   }
-    -- }
-  },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   -- event = "InsertEnter",
+  --   after = { "copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup {
+  --
+  --       -- formatters = {
+  --       --   label = require("copilot_cmp.format").format_label_text,
+  --       --   insert_text = require("copilot_cmp.format").format_insert_text,
+  --       --   -- insert_text = require("copilot_cmp.format").remove_existing,
+  --       --   preview = require("copilot_cmp.format").deindent,
+  --       -- },
+  --       -- mapping = {
+  --       --   ["<CR>"] = cmp.mapping.confirm {
+  --       --     -- this is the important line
+  --       --     behavior = cmp.ConfirmBehavior.Replace,
+  --       --     select = false,
+  --       --   },
+  --       -- },
+  --     }
+  --   end,
+  --   -- dependencies = {
+  --   --   {
+  --   --     "zbirenbaum/copilot.lua"
+  --   --   }
+  --   -- }
+  -- },
 
   {
     "neovim/nvim-lspconfig",
@@ -114,9 +126,9 @@ local plugins = {
           s = { name = "+Search" },
           t = { name = "+Term" },
           tn = { name = "+New" },
-          r = { name = "+Refactor"},
-          n = {name ="Line Numbers"},
-          w = {name ="Workspace"},
+          r = { name = "+Refactor" },
+          n = { name = "+Line Numbers" },
+          w = { name = "+Workspace" },
         },
       }
     end,

@@ -3,36 +3,36 @@
 local M = {}
 
 M.disabled = {
-    n = {
-      ["<leader>ff"] = "",
-      ["<leader>fa"] = "",
-      ["<leader>fb"] = "",
-      ["<leader>fh"] = "",
-      ["<leader>fo"] = "",
-      ["<leader>fw"] = "",
-      ["<leader>fm"] = "",
-      ["<leader>fz"] = "",
-      ["<leader>q"] = "",
-      ["<leader>v"] = "",
-      ["<leader>h"] = "",
-      ["<leader>n"] = "",
-      ["<leader>ma"] = "",
-      ["<leader>cm"] = "",
-      ["<leader>D"] = "",
-      ["<leader>ca"] = "",
-      ["<leader>cc"] = "",
-      ["<leader>ch"] = "",
-      ["<leader>ra"] = "",
-      ["<leader>rn"] = "",
-      ["<leader>pt"] = "",
-      ["<leader>wa"] = "",
-      ["<leader>wr"] = "",
-      ["<leader>wt"] = "",
-      ["<leader>wl"] = "",
-      ["<leader>wk"] = "",
-      ["<leader>wK"] = "",
-    },
-  }
+  n = {
+    ["<leader>ff"] = "",
+    ["<leader>fa"] = "",
+    ["<leader>fb"] = "",
+    ["<leader>fh"] = "",
+    ["<leader>fo"] = "",
+    ["<leader>fw"] = "",
+    ["<leader>fm"] = "",
+    ["<leader>fz"] = "",
+    ["<leader>q"] = "",
+    ["<leader>v"] = "",
+    ["<leader>h"] = "",
+    ["<leader>n"] = "",
+    ["<leader>ma"] = "",
+    ["<leader>cm"] = "",
+    ["<leader>D"] = "",
+    ["<leader>ca"] = "",
+    ["<leader>cc"] = "",
+    ["<leader>ch"] = "",
+    ["<leader>ra"] = "",
+    ["<leader>rn"] = "",
+    ["<leader>pt"] = "",
+    ["<leader>wa"] = "",
+    ["<leader>wr"] = "",
+    ["<leader>wt"] = "",
+    ["<leader>wl"] = "",
+    ["<leader>wk"] = "",
+    ["<leader>wK"] = "",
+  },
+}
 
 M.general = {
 
@@ -82,12 +82,12 @@ M.general = {
 
   t = {
     ["<esc>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
-    ["<C-w>h"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>h", true, true, true)},
-    ["<C-w>j"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>j", true, true, true)},
-    ["<C-w>k"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>k", true, true, true)},
-    ["<C-w>l"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>l", true, true, true)},
-    ["<C-w>q"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>q", true, true, true)},
-    ["<C-w>"] = {vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>", true, true, true), "window"},
+    ["<C-w>h"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>h", true, true, true) },
+    ["<C-w>j"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>j", true, true, true) },
+    ["<C-w>k"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>k", true, true, true) },
+    ["<C-w>l"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>l", true, true, true) },
+    ["<C-w>q"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>q", true, true, true) },
+    ["<C-w>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>", true, true, true), "window" },
   },
 
   v = {
@@ -352,7 +352,7 @@ M.nvterm = {
     -- toggle in normal mode
     ["<leader>ti"] = {
       function()
-       require("nvterm.terminal").toggle "float"
+        require("nvterm.terminal").toggle "float"
       end,
       "Toggle floating term",
     },
