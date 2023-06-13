@@ -31,6 +31,7 @@ M.disabled = {
     ["<leader>wl"] = "",
     ["<leader>wk"] = "",
     ["<leader>wK"] = "",
+    ["<C-n>"] = "",
   },
 }
 
@@ -478,7 +479,7 @@ M.gitsigns = {
     --   "Preview hunk",
     -- },
 
-    ["<leader>gb"] = {
+    ["<leader>gl"] = {
       function()
         package.loaded.gitsigns.blame_line()
       end,
