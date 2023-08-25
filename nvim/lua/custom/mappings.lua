@@ -52,7 +52,7 @@ M.general = {
 
   n = {
     ["<Esc>"] = { ":noh <CR>", "Clear highlights" },
-    ["<M-CR>"] = { "<cmd> lua vim.lsp.buf.code_action()<CR>", "LSP Code Action" },
+    ["<C-M>"] = { "<cmd> lua vim.lsp.buf.code_action()<CR>", "LSP Code Action" }, -- ENTER fixes lsp issues
     -- switch between windows
     -- ["<C-h>"] = { "<C-w>h", "Window left" },
     -- ["<C-l>"] = { "<C-w>l", "Window right" },
