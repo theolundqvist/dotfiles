@@ -7,7 +7,10 @@ export PATH="/usr/local/opt/python@3.11/bin:$PATH"
 CONF="$HOME/.config"
 
 # tmux source $CONF/tmux/tmux.conf
-
+#
+#
+# walk editor
+export EDITOR="nvim"
 
 
 
@@ -76,7 +79,6 @@ alias finder="open -a finder"
 alias v="nvim"
 alias c="clear"
 alias e="exit"
-
 
 # TOOLS
 alias idea='open -na "IntelliJ IDEA.app" --args "$@"'

@@ -32,6 +32,22 @@ local plugins = {
       }
     end,
   },
+  {
+    "timtro/glslView-nvim",
+    ft = "glsl",
+    config = function()
+      require("glslView").setup {
+        exe_path = "/path/to/glslViewer",
+        arguments = { "-l", "-w", "128", "-h", "256" },
+      }
+    end,
+  },
+  {
+    "tikhomirov/vim-glsl",
+  },
+  {
+    "sheerun/vim-polyglot",
+  },
   -- {
   --   "zbirenbaum/copilot-cmp",
   --   -- event = "InsertEnter",

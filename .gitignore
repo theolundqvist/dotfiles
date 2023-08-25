@@ -7,7 +7,6 @@ tmux/plugins
 .npm/
 .nuget/
 .vscode/
-.git/
 .cache/
 .fig/
 .zsh_sessions/
@@ -27,3 +26,6 @@ borg/security
 firebase-tools.json
 *credential*
 .DS_Store
+wireshark/
+node_modules/
+raycast/config.json

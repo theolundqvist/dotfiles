@@ -9,6 +9,7 @@ window:
     y: 2
   dynamic_padding: false
   decorations: buttonless
+  option_as_alt: true
 
 font:
   normal:

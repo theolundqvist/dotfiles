@@ -38,6 +38,7 @@ M.disabled = {
 M.general = {
 
   i = {
+    -- ["<tab>"] = {":noh    ", "insert spaces"}
     -- go to  beginning and end
     -- ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
     -- ["<C-e>"] = { "<End>", "End of line" },
@@ -51,6 +52,7 @@ M.general = {
 
   n = {
     ["<Esc>"] = { ":noh <CR>", "Clear highlights" },
+    ["<M-CR>"] = { "<cmd> lua vim.lsp.buf.code_action()<CR>", "LSP Code Action" },
     -- switch between windows
     -- ["<C-h>"] = { "<C-w>h", "Window left" },
     -- ["<C-l>"] = { "<C-w>l", "Window right" },
