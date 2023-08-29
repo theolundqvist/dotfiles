@@ -1,15 +1,12 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 zmodload zsh/zprof
+
 # Fig pre block. Keep at the top of this file.
 
 export PATH="/usr/local/opt/python@3.11/bin:$PATH"
 CONF="$HOME/dotfiles"
 
-# tmux source $CONF/tmux/tmux.conf
-#
-#
-# walk editor
 export EDITOR="nvim"
 
 
@@ -41,6 +38,11 @@ export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export PATH=$CONF/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export FZF_TMUX_OPTS="-p 55%,60%"
 
+# Use vim as the default editor
+# But still use emacs-style zsh bindings
+bindkey -e
+# vi bindings in terminal
+#source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # ALIASES
 
@@ -52,6 +54,7 @@ alias vyabai="nvim $CONF/.yabairc"
 alias vskhd="nvim $CONF/skhd/skhdrc"
 alias reload_wm="brew services restart yabai; brew services restart skhd"
 alias vzsh="nvim $CONF/.zshrc"
+alias vconf="nvim $CONF/Makefile"
 alias valacritty="nvim $CONF/alacritty/alacritty.yml"
 alias conf="cd $CONF"
 alias reload="source $CONF/.zshrc && echo 'zsh profile reloaded correctly' || echo 'Syntax error, could not import the file'";
@@ -105,6 +108,7 @@ alias gba="gbranch -a"
 alias gb="gbranch"
 alias gco="git checkout"
 alias gm="git merge"
+alias vig="v .gitignore"
 
 alias greloadgitignore="git rm -r --cached . && git add . && gs"
 
@@ -223,8 +227,10 @@ zstyle ':completion:\*' matcher-list 'm:{a-z}={A-Za-z}'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-function conda-enable()
+function conda-load()
 {
+  echo "sourcing anaconda"
+  export PATH="/opt/homebrew/anaconda3/bin:$PATH"
   source "$CONF/zsh/conda-setup.sh"
 }
 

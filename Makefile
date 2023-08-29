@@ -24,7 +24,9 @@ install:
 	reattach-to-user-namespace \
 	tree \
 	walk \
-	yqrashawn/goku/goku 
+	yqrashawn/goku/goku  \
+	node \
+	anaconda \
 	
 	brew tap epk/epk
 	brew install --cask font-sf-mono-nerd-font

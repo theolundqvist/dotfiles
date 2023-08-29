@@ -31,3 +31,4 @@ node_modules/
 raycast/config.json
 gh/
 Nuget/
+.templateengine/*

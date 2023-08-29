@@ -8,8 +8,8 @@ env:
 window:
   opacity: 1.0
   padding:
-    x: 3
-    y: 2
+    x: 5
+    y: 3 
   dynamic_padding: false
   decorations: buttonless
 
@@ -62,3 +62,5 @@ key_bindings:
   - { key: W, mods: Command, chars: "\x02\x78" }
   # Toggle the zoom state of the current tmux pane
   - { key: Z, mods: Command, chars: "\x02\x7a" }
+  # Spawn new alacritty instance
+  - { key: N,  mods: Command|Control|Shift, action: SpawnNewInstance }
