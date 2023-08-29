@@ -1,27 +1,63 @@
--- n, v, i, t = mode names
-
+---@type MappingsTable
+--
 local M = {}
 
+M.disabled = {
+  n = {
+    ["<leader>ff"] = "",
+    ["<leader>fa"] = "",
+    ["<leader>fb"] = "",
+    ["<leader>fh"] = "",
+    ["<leader>fo"] = "",
+    ["<leader>fw"] = "",
+    ["<leader>fm"] = "",
+    ["<leader>fz"] = "",
+    ["<leader>q"] = "",
+    ["<leader>v"] = "",
+    ["<leader>h"] = "",
+    ["<leader>n"] = "",
+    ["<leader>ma"] = "",
+    ["<leader>cm"] = "",
+    ["<leader>D"] = "",
+    ["<leader>ca"] = "",
+    ["<leader>cc"] = "",
+    ["<leader>ch"] = "",
+    ["<leader>ra"] = "",
+    ["<leader>rn"] = "",
+    ["<leader>pt"] = "",
+    ["<leader>wa"] = "",
+    ["<leader>wr"] = "",
+    ["<leader>wt"] = "",
+    ["<leader>wl"] = "",
+    ["<leader>wk"] = "",
+    ["<leader>wK"] = "",
+    ["<C-n>"] = "",
+  },
+}
+
 M.general = {
+
   i = {
+    -- ["<tab>"] = {":noh    ", "insert spaces"}
     -- go to  beginning and end
-    ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
-    ["<C-e>"] = { "<End>", "End of line" },
+    -- ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
+    -- ["<C-e>"] = { "<End>", "End of line" },
 
     -- navigate within insert mode
-    ["<C-h>"] = { "<Left>", "Move left" },
-    ["<C-l>"] = { "<Right>", "Move right" },
-    ["<C-j>"] = { "<Down>", "Move down" },
-    ["<C-k>"] = { "<Up>", "Move up" },
+    -- ["<C-h>"] = { "<Left>", "Move left" },
+    -- ["<C-l>"] = { "<Right>", "Move right" },
+    -- ["<C-j>"] = { "<Down>", "Move down" },
+    -- ["<C-k>"] = { "<Up>", "Move up" },
   },
 
   n = {
     ["<Esc>"] = { ":noh <CR>", "Clear highlights" },
+    ["<C-M>"] = { "<cmd> lua vim.lsp.buf.code_action()<CR>", "LSP Code Action" }, -- ENTER fixes lsp issues
     -- switch between windows
-    ["<C-h>"] = { "<C-w>h", "Window left" },
-    ["<C-l>"] = { "<C-w>l", "Window right" },
-    ["<C-j>"] = { "<C-w>j", "Window down" },
-    ["<C-k>"] = { "<C-w>k", "Window up" },
+    -- ["<C-h>"] = { "<C-w>h", "Window left" },
+    -- ["<C-l>"] = { "<C-w>l", "Window right" },
+    -- ["<C-j>"] = { "<C-w>j", "Window down" },
+    -- ["<C-k>"] = { "<C-w>k", "Window up" },
 
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
@@ -30,8 +66,8 @@ M.general = {
     ["<C-c>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
 
     -- line numbers
-    ["<leader>n"] = { "<cmd> set nu! <CR>", "Toggle line number" },
-    ["<leader>rn"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
+    ["<leader>nt"] = { "<cmd> set nu! <CR>", "Toggle line number" },
+    ["<leader>nr"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
@@ -45,17 +81,16 @@ M.general = {
     -- new buffer
     ["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
     ["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
-
-    ["<leader>fm"] = {
-      function()
-        vim.lsp.buf.format { async = true }
-      end,
-      "LSP formatting",
-    },
   },
 
   t = {
-    ["<C-x>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
+    ["<esc>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
+    ["<C-w>h"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>h", true, true, true) },
+    ["<C-w>j"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>j", true, true, true) },
+    ["<C-w>k"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>k", true, true, true) },
+    ["<C-w>l"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>l", true, true, true) },
+    ["<C-w>q"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>q", true, true, true) },
+    ["<C-w>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n><C-w>", true, true, true), "window" },
   },
 
   v = {
@@ -79,14 +114,14 @@ M.tabufline = {
     -- cycle through buffers
     ["<tab>"] = {
       function()
-        require("nvchad.tabufline").tabuflineNext()
+        require("nvchad_ui.tabufline").tabuflineNext()
       end,
       "Goto next buffer",
     },
 
     ["<S-tab>"] = {
       function()
-        require("nvchad.tabufline").tabuflinePrev()
+        require("nvchad_ui.tabufline").tabuflinePrev()
       end,
       "Goto prev buffer",
     },
@@ -94,7 +129,7 @@ M.tabufline = {
     -- close buffer + hide terminal buffer
     ["<leader>x"] = {
       function()
-        require("nvchad.tabufline").close_buffer()
+        require("nvchad_ui.tabufline").close_buffer()
       end,
       "Close buffer",
     },
@@ -163,16 +198,16 @@ M.lspconfig = {
       "LSP signature help",
     },
 
-    ["<leader>D"] = {
+    ["<leader>lD"] = {
       function()
         vim.lsp.buf.type_definition()
       end,
       "LSP definition type",
     },
 
-    ["<leader>ra"] = {
+    ["<leader>lr"] = {
       function()
-        require("nvchad.renamer").open()
+        require("nvchad_ui.renamer").open()
       end,
       "LSP rename",
     },
@@ -191,32 +226,39 @@ M.lspconfig = {
       "LSP references",
     },
 
-    ["<leader>f"] = {
+    ["<leader>ldf"] = {
       function()
         vim.diagnostic.open_float { border = "rounded" }
       end,
       "Floating diagnostic",
     },
 
-    ["[d"] = {
+    ["<leader>lp"] = {
       function()
         vim.diagnostic.goto_prev { float = { border = "rounded" } }
       end,
       "Goto prev",
     },
 
-    ["]d"] = {
+    ["<leader>ln"] = {
       function()
         vim.diagnostic.goto_next { float = { border = "rounded" } }
       end,
       "Goto next",
     },
 
-    ["<leader>q"] = {
+    ["<leader>ldd"] = {
       function()
         vim.diagnostic.setloclist()
       end,
       "Diagnostic setloclist",
+    },
+
+    ["<leader>lf"] = {
+      function()
+        vim.lsp.buf.format { async = true }
+      end,
+      "LSP formatting",
     },
 
     ["<leader>wa"] = {
@@ -247,10 +289,9 @@ M.nvimtree = {
 
   n = {
     -- toggle
-    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
-
+    ["<leader>e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle nvimtree" },
     -- focus
-    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+    ["<leader>o"] = { "<cmd>NvimTreeFocus<CR>", "Focus nvimtree" },
   },
 }
 
@@ -259,25 +300,27 @@ M.telescope = {
 
   n = {
     -- find
-    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
-    ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
-    ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
-    ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
-    ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
-    ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
-    ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+    ["<leader>sf"] = { "<cmd> Telescope find_files <CR>", "Search files" },
+    ["<leader>sa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Search all files" },
+    ["<leader>sw"] = { "<cmd> Telescope live_grep <CR>", "Search words" },
+    ["<leader>sb"] = { "<cmd> Telescope buffers <CR>", "Search buffers" },
+    ["<leader>sh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
+    ["<leader>so"] = { "<cmd> Telescope oldfiles <CR>", "Search oldfiles" },
+    ["<leader>sz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Search in current buffer" },
+    ["<leader>sc"] = { "<cmd>Telescope commands<CR>", "Search commands" },
 
     -- git
-    ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+    ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "Git branch" },
+    ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "Git status" },
 
     -- pick a hidden term
-    ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
+    ["<leader>tp"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
 
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
-    ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
+    ["<leader>sm"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
   },
 }
 
@@ -286,21 +329,21 @@ M.nvterm = {
 
   t = {
     -- toggle in terminal mode
-    ["<A-i>"] = {
+    ["<leader>ti"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
       "Toggle floating term",
     },
 
-    ["<A-h>"] = {
+    ["<leader>th"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
       "Toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+    ["<leader>tv"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
@@ -310,21 +353,21 @@ M.nvterm = {
 
   n = {
     -- toggle in normal mode
-    ["<A-i>"] = {
+    ["<leader>ti"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
       "Toggle floating term",
     },
 
-    ["<A-h>"] = {
+    ["<leader>th"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
       "Toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+    ["<leader>tv"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
@@ -332,14 +375,14 @@ M.nvterm = {
     },
 
     -- new
-    ["<leader>h"] = {
+    ["<leader>tnh"] = {
       function()
         require("nvterm.terminal").new "horizontal"
       end,
       "New horizontal term",
     },
 
-    ["<leader>v"] = {
+    ["<leader>tnv"] = {
       function()
         require("nvterm.terminal").new "vertical"
       end,
@@ -352,19 +395,19 @@ M.whichkey = {
   plugin = true,
 
   n = {
-    ["<leader>wK"] = {
-      function()
-        vim.cmd "WhichKey"
-      end,
-      "Which-key all keymaps",
-    },
-    ["<leader>wk"] = {
-      function()
-        local input = vim.fn.input "WhichKey: "
-        vim.cmd("WhichKey " .. input)
-      end,
-      "Which-key query lookup",
-    },
+    -- ["<leader>wK"] = {
+    --   function()
+    --     vim.cmd "WhichKey"
+    --   end,
+    --   "Which-key all keymaps",
+    -- },
+    -- ["<leader>wk"] = {
+    --   function()
+    --     local input = vim.fn.input "WhichKey: "
+    --     vim.cmd("WhichKey " .. input)
+    --   end,
+    --   "Which-key query lookup",
+    -- },
   },
 }
 
@@ -372,7 +415,7 @@ M.blankline = {
   plugin = true,
 
   n = {
-    ["<leader>cc"] = {
+    ["<leader>lc"] = {
       function()
         local ok, start = require("indent_blankline.utils").get_current_context(
           vim.g.indent_blankline_context_patterns,
@@ -395,63 +438,65 @@ M.gitsigns = {
 
   n = {
     -- Navigation through hunks
-    ["]c"] = {
-      function()
-        if vim.wo.diff then
-          return "]c"
-        end
-        vim.schedule(function()
-          require("gitsigns").next_hunk()
-        end)
-        return "<Ignore>"
-      end,
-      "Jump to next hunk",
-      opts = { expr = true },
-    },
-
-    ["[c"] = {
-      function()
-        if vim.wo.diff then
-          return "[c"
-        end
-        vim.schedule(function()
-          require("gitsigns").prev_hunk()
-        end)
-        return "<Ignore>"
-      end,
-      "Jump to prev hunk",
-      opts = { expr = true },
-    },
+    -- ["]c"] = {
+    --   function()
+    --     if vim.wo.diff then
+    --       return "]c"
+    --     end
+    --     vim.schedule(function()
+    --       require("gitsigns").next_hunk()
+    --     end)
+    --     return "<Ignore>"
+    --   end,
+    --   "Jump to next hunk",
+    --   opts = { expr = true },
+    -- },
+    --
+    -- ["[c"] = {
+    --   function()
+    --     if vim.wo.diff then
+    --       return "[c"
+    --     end
+    --     vim.schedule(function()
+    --       require("gitsigns").prev_hunk()
+    --     end)
+    --     return "<Ignore>"
+    --   end,
+    --   "Jump to prev hunk",
+    --   opts = { expr = true },
+    -- },
 
     -- Actions
-    ["<leader>rh"] = {
-      function()
-        require("gitsigns").reset_hunk()
-      end,
-      "Reset hunk",
-    },
+    -- ["<leader>rh"] = {
+    --   function()
+    --     require("gitsigns").reset_hunk()
+    --   end,
+    --   "Reset hunk",
+    -- },
 
-    ["<leader>ph"] = {
-      function()
-        require("gitsigns").preview_hunk()
-      end,
-      "Preview hunk",
-    },
+    -- ["<leader>ph"] = {
+    --   function()
+    --     require("gitsigns").preview_hunk()
+    --   end,
+    --   "Preview hunk",
+    -- },
 
-    ["<leader>gb"] = {
+    ["<leader>gl"] = {
       function()
         package.loaded.gitsigns.blame_line()
       end,
       "Blame line",
     },
 
-    ["<leader>td"] = {
-      function()
-        require("gitsigns").toggle_deleted()
-      end,
-      "Toggle deleted",
-    },
+    -- ["<leader>td"] = {
+    --   function()
+    --     require("gitsigns").toggle_deleted()
+    --   end,
+    --   "Toggle deleted",
+    -- },
   },
 }
+
+-- more keybinds!
 
 return M

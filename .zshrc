@@ -4,7 +4,7 @@ zmodload zsh/zprof
 # Fig pre block. Keep at the top of this file.
 
 export PATH="/usr/local/opt/python@3.11/bin:$PATH"
-CONF="$HOME/.config"
+CONF="$HOME/dotfiles"
 
 # tmux source $CONF/tmux/tmux.conf
 #
@@ -38,7 +38,9 @@ alias td='tmux detach'
 # ~/.tmux/plugins
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 # ~/.config/tmux/plugins
-export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+export PATH=$CONF/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+export FZF_TMUX_OPTS="-p 55%,60%"
+
 
 # ALIASES
 
@@ -194,9 +196,12 @@ function git() {
 
 
 # zoxide
-eval "$(zoxide init zsh)"
-
-
+if command -v zoxide &> /dev/null
+then
+  eval "$(zoxide init zsh)"
+else
+  echo "zoxide could not be found"
+fi
 
 
 
@@ -222,9 +227,6 @@ function conda-enable()
 {
   source "$CONF/zsh/conda-setup.sh"
 }
-#
-# Load Angular CLI autocompletion.
-source <(ng completion script)
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

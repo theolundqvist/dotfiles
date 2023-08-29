@@ -13,5 +13,7 @@ export PATH="$PATH:/Users/theo/.dotnet/tools"
 PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:${PATH}"
 export PATH
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.post.zsh"

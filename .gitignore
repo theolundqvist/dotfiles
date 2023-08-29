@@ -29,3 +29,5 @@ firebase-tools.json
 wireshark/
 node_modules/
 raycast/config.json
+gh/
+Nuget/
