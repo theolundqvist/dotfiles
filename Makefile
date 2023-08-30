@@ -5,6 +5,9 @@ main:
 	@ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 	@ln -s ~/dotfiles/.* ~
 
+name:
+	sudo scutil --set HostName "M1"
+
 install:
 	brew install \
 	zoxide \
@@ -44,3 +47,11 @@ install:
 	messenger \
 	docker \
 	karabiner-elements
+
+
+  # volar dependencies for vue
+	npm install -g @vue/language-server
+	npm install -g typescript
+	npm install -g typescript-language-server
+
+

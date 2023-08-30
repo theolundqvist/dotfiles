@@ -190,7 +190,7 @@
   :rules [ :o-mode
       [:a "open -a Arc"]  ; 's' - Open Safari
       [:t [:open "Alacritty"]]  ; 't' - Open term
-      [:d [:open "Discord"]] 
+      [:d [:open "Safari"]] 
       [:y "open -a finder ~/Downloads"]
       [:f "open -a firefox"]
 

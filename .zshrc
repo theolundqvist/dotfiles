@@ -52,9 +52,10 @@ alias pc="pbpaste > "
 # PROFILE
 alias vyabai="nvim $CONF/.yabairc"
 alias vskhd="nvim $CONF/skhd/skhdrc"
-alias reload_wm="brew services restart yabai; brew services restart skhd"
+# alias reload_wm="brew services restart yabai; brew services restart skhd"
 alias vzsh="nvim $CONF/.zshrc"
 alias vconf="nvim $CONF/Makefile"
+alias confi="(cd $CONF && make install)"
 alias valacritty="nvim $CONF/alacritty/alacritty.yml"
 alias conf="cd $CONF"
 alias reload="source $CONF/.zshrc && echo 'zsh profile reloaded correctly' || echo 'Syntax error, could not import the file'";
@@ -64,10 +65,18 @@ alias vkarabiner="nvim $CONF/karabiner/layers.edn"
 alias karabiner_make="(cd $CONF/karabiner && make)"
 
 # JAVA
-alias java8='export PATH="/usr/local/opt/openjdk@8/bin:$PATH" && java --version'
-alias java11='export PATH="/usr/local/opt/openjdk@11/bin:$PATH" && java --version'
-alias java17='export PATH="/usr/local/opt/openjdk@17/bin:$PATH" && java --version'
-alias java18='export PATH="/usr/local/opt/openjdk@18/bin:$PATH" && java --version'
+# alias java8='export PATH="/usr/local/opt/openjdk@8/bin:$PATH" && java --version'
+
+alias java11='export PATH="/opt/homebrew/openjdk@11/bin:$PATH" && java --version && export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"'
+alias java17='export PATH="/opt/homebrew/openjdk@17/bin:$PATH" && java --version && export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"'
+# OBS: May need to run  
+# sudo ln -sfn /opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+# and
+# sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
+#
+#
+#
+# alias java18='export PATH="/usr/local/opt/openjdk@18/bin:$PATH" && java --version'
 alias javav='java --version'
 
 
@@ -109,6 +118,7 @@ alias gb="gbranch"
 alias gco="git checkout"
 alias gm="git merge"
 alias vig="v .gitignore"
+alias m="make"
 
 alias greloadgitignore="git rm -r --cached . && git add . && gs"
 
