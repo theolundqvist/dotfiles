@@ -30,6 +30,7 @@ install:
 	yqrashawn/goku/goku  \
 	node \
 	anaconda \
+	findutils \ # xargs -d
 	
 	brew tap epk/epk
 	brew install --cask font-sf-mono-nerd-font

@@ -92,7 +92,7 @@
 	<key>description</key>
 	<string>An Alfred Todoist workflow</string>
 	<key>disabled</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>Alfred Workflow Todoist</string>
 	<key>objects</key>
@@ -136,6 +136,8 @@ node $node_flags alfred-workflow-todoist.js remove "{query}"</string>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -194,7 +196,7 @@ node $node_flags alfred-workflow-todoist.js read "{query}"
 			<key>uid</key>
 			<string>0E0DCF99-35B9-4513-B0D9-E6020C48ED1E</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -235,6 +237,8 @@ node $node_flags alfred-workflow-todoist.js submit "{query}"</string>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -293,7 +297,7 @@ node $node_flags alfred-workflow-todoist.js create "{query}"
 			<key>uid</key>
 			<string>853C0BDB-9C62-4715-86A4-E71735849C80</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -351,6 +355,8 @@ node $node_flags alfred-workflow-todoist.js settings:store "{query}"</string>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -409,7 +415,7 @@ node $node_flags alfred-workflow-todoist.js settings "{query}"
 			<key>uid</key>
 			<string>B447C7A9-4CEC-457F-B711-65D07976721C</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 	</array>
 	<key>readme</key>

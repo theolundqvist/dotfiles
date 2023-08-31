@@ -6,6 +6,19 @@
 	<string></string>
 	<key>connections</key>
 	<dict>
+		<key>0E551D2C-5F2D-49F9-A530-B35605D6727F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>682A849F-4C01-4CB2-8A86-A78272C1F886</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>35E79C7B-7CDF-4589-9735-72FFA513CF64</key>
 		<array>
 			<dict>
@@ -50,6 +63,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>4376D296-6449-42F7-81B4-38A2195CDE75</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>CA09A081-86F1-4474-A6D0-52CDAF45BBCB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8DCE99C3-3220-48B0-906C-D4B667370130</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -185,9 +211,49 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
+				<string>syne</string>
+				<key>subtext</key>
+				<string>English synonyms for {query}</string>
+				<key>text</key>
+				<string>Synonymer Engelska</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>0E551D2C-5F2D-49F9-A530-B35605D6727F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://www.thesaurus.com/browse/{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>682A849F-4C01-4CB2-8A86-A78272C1F886</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
 				<string>syn</string>
 				<key>subtext</key>
-				<string></string>
+				<string>Synonymer för {query}</string>
 				<key>text</key>
 				<string>Synonymer</string>
 				<key>withspace</key>
@@ -216,6 +282,44 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>3DB67A07-6D91-4CDA-9BBC-B1435836C750</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>fmess</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Facebook Messenger</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>35E79C7B-7CDF-4589-9735-72FFA513CF64</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Messenger.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>6F4C305A-D68B-4873-BE63-E03DC628378F</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -262,44 +366,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>paths</key>
-				<array>
-					<string>/Applications/Messenger.app</string>
-				</array>
-				<key>toggle</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.launchfiles</string>
-			<key>uid</key>
-			<string>6F4C305A-D68B-4873-BE63-E03DC628378F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>fmess</string>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string>Facebook Messenger</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>35E79C7B-7CDF-4589-9735-72FFA513CF64</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
@@ -337,6 +403,46 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>assistant</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Open ChatGPT assistant</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>CA09A081-86F1-4474-A6D0-52CDAF45BBCB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://chatgpt.ddiu.me/</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>8DCE99C3-3220-48B0-906C-D4B667370130</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Keywords are one of Alfred's most commonly used and most useful ways of launching actions. Set a keyword and connect it to the action(s) you want to perform.
@@ -344,6 +450,13 @@
 Type your keyword into Alfred, followed by your input text if needed, and you'll be on your way to boosting your productivity!</string>
 	<key>uidata</key>
 	<dict>
+		<key>0E551D2C-5F2D-49F9-A530-B35605D6727F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>95</integer>
+			<key>ypos</key>
+			<integer>310</integer>
+		</dict>
 		<key>35E79C7B-7CDF-4589-9735-72FFA513CF64</key>
 		<dict>
 			<key>xpos</key>
@@ -356,7 +469,7 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 			<key>xpos</key>
 			<integer>255</integer>
 			<key>ypos</key>
-			<integer>315</integer>
+			<integer>415</integer>
 		</dict>
 		<key>3E554F3A-9D95-4D8B-9797-FDE6FDA14DCD</key>
 		<dict>
@@ -374,7 +487,7 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 			<key>xpos</key>
 			<integer>255</integer>
 			<key>ypos</key>
-			<integer>420</integer>
+			<integer>520</integer>
 		</dict>
 		<key>5E09385F-EE6F-4D81-BEC2-5CB38185B133</key>
 		<dict>
@@ -383,6 +496,13 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 			<key>ypos</key>
 			<integer>200</integer>
 		</dict>
+		<key>682A849F-4C01-4CB2-8A86-A78272C1F886</key>
+		<dict>
+			<key>xpos</key>
+			<integer>255</integer>
+			<key>ypos</key>
+			<integer>310</integer>
+		</dict>
 		<key>6F4C305A-D68B-4873-BE63-E03DC628378F</key>
 		<dict>
 			<key>xpos</key>
@@ -390,12 +510,19 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 			<key>ypos</key>
 			<integer>450</integer>
 		</dict>
+		<key>8DCE99C3-3220-48B0-906C-D4B667370130</key>
+		<dict>
+			<key>xpos</key>
+			<integer>255</integer>
+			<key>ypos</key>
+			<integer>735</integer>
+		</dict>
 		<key>8E31EB6E-139C-46EF-94CC-CB283510DFA7</key>
 		<dict>
 			<key>xpos</key>
 			<integer>95</integer>
 			<key>ypos</key>
-			<integer>525</integer>
+			<integer>625</integer>
 		</dict>
 		<key>945EDF1B-3F3A-4F72-9B74-D21613073E82</key>
 		<dict>
@@ -415,7 +542,14 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 			<key>xpos</key>
 			<integer>95</integer>
 			<key>ypos</key>
-			<integer>420</integer>
+			<integer>520</integer>
+		</dict>
+		<key>CA09A081-86F1-4474-A6D0-52CDAF45BBCB</key>
+		<dict>
+			<key>xpos</key>
+			<integer>95</integer>
+			<key>ypos</key>
+			<integer>735</integer>
 		</dict>
 		<key>CE770012-5644-476B-A813-0AD0FBF3B1BA</key>
 		<dict>
@@ -429,14 +563,14 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 			<key>xpos</key>
 			<integer>255</integer>
 			<key>ypos</key>
-			<integer>525</integer>
+			<integer>625</integer>
 		</dict>
 		<key>F9ECEF07-FF19-4064-B026-5EE13CAD12FF</key>
 		<dict>
 			<key>xpos</key>
 			<integer>95</integer>
 			<key>ypos</key>
-			<integer>315</integer>
+			<integer>415</integer>
 		</dict>
 	</dict>
 	<key>version</key>

@@ -127,7 +127,7 @@
 	<key>description</key>
 	<string>Number System Converter</string>
 	<key>disabled</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>NSC</string>
 	<key>objects</key>

@@ -39,7 +39,7 @@
 	<key>description</key>
 	<string>Use "code" to open files/folder with Visual Studio Code</string>
 	<key>disabled</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>Open with Visual Studio Code</string>
 	<key>objects</key>

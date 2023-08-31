@@ -17,6 +17,19 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>302BB533-5368-4753-8E2A-C55A0B1557D7</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>ts</string>
+			<key>text</key>
+			<string>Översätt {query} till svenska</string>
+			<key>url</key>
+			<string>https://translate.google.com/?tl=sv&amp;text={query}&amp;op=translate</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>4353C09F-DE6D-4942-B466-DEA2F900C1A2</key>
 		<dict>
 			<key>enabled</key>
@@ -27,6 +40,32 @@
 			<string>Translate {query}</string>
 			<key>url</key>
 			<string>https://translate.google.com/?text={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>61C43729-75CF-4A4D-8350-DB8B6EF716FB</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>te</string>
+			<key>text</key>
+			<string>Translate {query} to English</string>
+			<key>url</key>
+			<string>https://translate.google.com/?tl=en&amp;text={query}&amp;op=translate</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>8A3BF57A-0EEA-4E24-8698-3FF94CE06C48</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>lub</string>
+			<key>text</key>
+			<string>lub</string>
+			<key>url</key>
+			<string>https://lubsearch.lub.lu.se/</string>
 			<key>utf8</key>
 			<true/>
 		</dict>

@@ -67,8 +67,8 @@ alias karabiner_make="(cd $CONF/karabiner && make)"
 # JAVA
 # alias java8='export PATH="/usr/local/opt/openjdk@8/bin:$PATH" && java --version'
 
-alias java11='export PATH="/opt/homebrew/openjdk@11/bin:$PATH" && java --version && export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"'
-alias java17='export PATH="/opt/homebrew/openjdk@17/bin:$PATH" && java --version && export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"'
+# alias java11='export PATH="/opt/homebrew/openjdk@11/bin:$PATH" && java --version && export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"'
+# alias java17='export PATH="/opt/homebrew/openjdk@17/bin:$PATH" && java --version && export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"'
 # OBS: May need to run  
 # sudo ln -sfn /opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
 # and
@@ -246,3 +246,26 @@ function conda-load()
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+eval export PATH="/Users/theo/.jenv/shims:${PATH}"
+export JENV_SHELL=zsh
+export JENV_LOADED=1
+unset JAVA_HOME
+unset JDK_HOME
+source '/opt/homebrew/Cellar/jenv/0.5.6/libexec/libexec/../completions/jenv.zsh'
+jenv rehash 2>/dev/null
+jenv refresh-plugins
+jenv() {
+  type typeset &> /dev/null && typeset command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  enable-plugin|rehash|shell|shell-options)
+    eval `jenv "sh-$command" "$@"`;;
+  *)
+    command jenv "$command" "$@";;
+  esac
+}

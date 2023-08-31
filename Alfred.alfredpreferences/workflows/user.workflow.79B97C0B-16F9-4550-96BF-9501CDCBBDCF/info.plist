@@ -38,7 +38,7 @@
 	<key>description</key>
 	<string>Control Homebrew &amp; Cask with Alfred</string>
 	<key>disabled</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>Homebrew &amp; Cask for Alfred</string>
 	<key>objects</key>
