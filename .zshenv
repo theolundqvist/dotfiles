@@ -12,7 +12,7 @@ function yabai_setup_space {
 
 function yabai_remove_extra_spaces {
   for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 5)'); do
-    yabai -m space --destroy 6      # <-- max number spaces
+    yabai -m space --destroy 4      # <-- max number spaces
   done
 }
 
@@ -27,7 +27,7 @@ function yabai_set_padding {
 function start_apps {
 
   open -a 'Arc';
-  open -a 'Discord';
+  open -a 'Safari';
   open -a 'Messenger';
   open -a 'Messages'
   open -a 'Alacritty';
@@ -55,7 +55,7 @@ function yabai_setup_laptop_env {
   yabai -m rule --add label="X.1" app="^Alacritty$" space=^1
   #yabai -m rule --add label="X.2" app="^Arc$" space=2
   yabai -m rule --add label="X.3" app="^Messenger$" space=3
-  yabai -m rule --add label="X.4" app="^Discord$" space=3
+  yabai -m rule --add label="X.4" app="^Safari$" space=4
   yabai -m rule --add label="X.5" app="^Messages$" space=3
   #yabai -m rule --add label="X.6" app="^Spotify$" space=4 
 

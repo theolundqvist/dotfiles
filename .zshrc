@@ -32,11 +32,23 @@ alias reload_sym="find $HOME -maxdepth 1 -type l -delete; ln -s $CONF/.* $HOME"
 alias tn='tmux new -s `basename $PWD`'
 alias ta='tmux attach'
 alias td='tmux detach'
+function w {
+  cd "$(walk "$@")"
+}
 # ~/.tmux/plugins
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 # ~/.config/tmux/plugins
 export PATH=$CONF/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export FZF_TMUX_OPTS="-p 55%,60%"
+
+# OPEN TERMINAL BUFFER IN VIM
+function vt(){
+  file="$HOME/.tmux.temp.sh"
+  rm -f $file
+  tmux capture-pane -pS -1000 > $file
+  tmux new-window -n:edit "vi '+ normal gg } k $' $file"
+}
+
 
 # Use vim as the default editor
 # But still use emacs-style zsh bindings
@@ -269,3 +281,11 @@ jenv() {
     command jenv "$command" "$@";;
   esac
 }
+
+# pnpm
+export PNPM_HOME="/Users/theo/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm endexport PATH="/opt/homebrew/opt/node@18/bin:$PATH"
