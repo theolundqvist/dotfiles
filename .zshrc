@@ -8,7 +8,7 @@ export PATH="/usr/local/opt/python@3.11/bin:$PATH"
 CONF="$HOME/dotfiles"
 
 export EDITOR="nvim"
-
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 
 # PLUGINS 
@@ -289,3 +289,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm endexport PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"

@@ -3,7 +3,9 @@ main:
 	@find ~  -maxdepth 1 -type l -delete; 
 	@ln -s ~/dotfiles ~/.config
 	@ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
-	@ln -s ~/dotfiles/.* ~
+	@ln -s ~/dotfiles/tmux ~/.tmux
+	-@ln -s ~/dotfiles/.* ~
+	@rm -rf ~/.git
 
 name:
 	sudo scutil --set HostName "M1"
@@ -30,8 +32,14 @@ install:
 	yqrashawn/goku/goku  \
 	node \
 	anaconda \
-	findutils \ # xargs -d
-	
+	bkt \
+	bash \
+	coreutils \
+	findutils # xargs -d
+
+	brew tap arl/arl
+	brew install gitmux
+
 	brew tap epk/epk
 	brew install --cask font-sf-mono-nerd-font
 	test -d ~/dotfiles/alacritty/catppuccin || git clone https://github.com/catppuccin/alacritty.git ~/dotfiles/alacritty/catppuccin
@@ -48,6 +56,8 @@ install:
 	messenger \
 	docker \
 	karabiner-elements
+
+	python3 -m pip install aw-client
 
 
   # volar dependencies for vue

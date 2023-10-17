@@ -92,3 +92,4 @@ function yabai_setup_desktop_env {
 }
 
 
+. "$HOME/.cargo/env"
