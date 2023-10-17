@@ -75,7 +75,7 @@ function current_time() {
   local git_url=$(git config --get remote.origin.url | sed -r 's/.*(\@|\/\/)(.*)(\:|\/)([^:\/]*)\/([^\/\.]*)\.git/https:\/\/\2\/\4\/\5/')
   local title=$(git config --get remote.origin.url | sed -r 's/.*(\@|\/\/)(.*)(\:|\/)([^:\/]*)\/([^\/\.]*)\.git/\5/')
   local total=$(bkt --ttl=$bkt_ttl -- python3 ~/dotfiles/tmux/plugins/aw-watcher-tmux/scripts/current_time.py $git_url  | grep "res:" | sed -r "s/res: (.*)/\1/")
-  if [ -z "$git_url"]; then
+  if [ -z "$title"]; then
     title="today"
   fi
   # local total=$git_url
@@ -118,5 +118,6 @@ function main() {
 	# printf " "
 }
 
+cd $1
 main
 
