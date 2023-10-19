@@ -72,9 +72,9 @@ function current_time() {
 	# if [[ "$(bkt --ttl=$bkt_ttl -- watson status)" == "No project started." ]]; then
 	# 	status=""
 	# fi
-  local git_url=$(git config --get remote.origin.url | sed -r 's/.*(\@|\/\/)(.*)(\:|\/)([^:\/]*)\/([^\/\.]*)\.git/https:\/\/\2\/\4\/\5/')
-  local title=$(git config --get remote.origin.url | sed -r 's/.*(\@|\/\/)(.*)(\:|\/)([^:\/]*)\/([^\/\.]*)\.git/\5/')
-  local total=$(bkt --ttl=$bkt_ttl -- python3 ~/dotfiles/tmux/plugins/aw-watcher-tmux/scripts/current_time.py $git_url  | grep "res:" | sed -r "s/res: (.*)/\1/")
+  local git_url=$(git config --get remote.origin.url | sed -r 's/.*(\@|\/\/)(.*)(\:|\/)([^:\/]*)\/([^\/\.]*)(\.git){0,1}/https:\/\/\2\/\4\/\5/')
+  local title=$(git config --get remote.origin.url | sed -r 's/.*(\@|\/\/)(.*)(\:|\/)([^:\/]*)\/([^\/\.]*)(\.git){0,1}/\5/')
+  local total=$(bkt --ttl=$bkt_ttl -- python3 ~/dotfiles/tmux/plugins/aw-watcher-tmux/scripts/current_time.py -g $git_url  | grep "total:" | sed -r "s/total: (.*)/\1/")
   if [ -z "$title"]; then
     title="today"
   fi
