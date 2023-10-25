@@ -2,6 +2,7 @@ main:
 	@echo "Creating symlinks for dotfiles"
 	@find ~  -maxdepth 1 -type l -delete; 
 	@ln -s ~/dotfiles ~/.config
+	@ln -s ~/dotfiles/nvim-config ~/dotfiles/nvim/lua/custom
 	@ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 	@ln -s ~/dotfiles/tmux ~/.tmux
 	-@ln -s ~/dotfiles/.* ~
