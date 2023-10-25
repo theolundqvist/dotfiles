@@ -1,4 +1,5 @@
 *.swp
+simple-update-notifier/
 iterm2/
 configstore/
 stripe/
