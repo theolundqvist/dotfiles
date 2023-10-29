@@ -1,4 +1,5 @@
 *.swp
+jgit/
 simple-update-notifier/
 iterm2/
 configstore/
