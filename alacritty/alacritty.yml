@@ -64,3 +64,6 @@ key_bindings:
   - { key: Z, mods: Command, chars: "\x02\x7a" }
   # Spawn new alacritty instance
   - { key: N,  mods: Command|Control|Shift, action: SpawnNewInstance }
+  # forward and back one word
+  - { key: F, mods: Control, chars: "\x1BF" }
+  - { key: B,  mods: Control, chars: "\x1BB" }

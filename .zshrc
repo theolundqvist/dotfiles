@@ -256,8 +256,6 @@ function conda-load()
   source "$CONF/zsh/conda-setup.sh"
 }
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
 eval export PATH="/Users/theo/.jenv/shims:${PATH}"
 export JENV_SHELL=zsh
@@ -290,3 +288,7 @@ case ":$PATH:" in
 esac
 # pnpm endexport PATH="/opt/homebrew/opt/node@18/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

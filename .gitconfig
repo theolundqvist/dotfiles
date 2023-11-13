@@ -3,7 +3,10 @@
 # Please adapt and uncomment the following lines:
 name = Theodor Lundqvist
 email = theodor.lundqvist@gmail.com
+	signingKey = /Users/theo/.ssh/id_ed25519
 [pull]
 	rebase = false
 [init]
 	defaultBranch = main
+[gpg]
+	format = ssh
