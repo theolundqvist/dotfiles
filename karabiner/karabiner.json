@@ -341,29 +341,6 @@
         "basic.to_if_held_down_threshold_milliseconds" : 1000
       },
       "rules" : [ {
-        "description" : "Auto generated layer conditions",
-        "manipulators" : [ {
-          "type" : "basic",
-          "to" : [ {
-            "set_variable" : {
-              "name" : "caps_mode",
-              "value" : 1
-            }
-          } ],
-          "from" : {
-            "key_code" : "caps_lock"
-          },
-          "to_after_key_up" : [ {
-            "set_variable" : {
-              "name" : "caps_mode",
-              "value" : 0
-            }
-          } ],
-          "to_if_alone" : [ {
-            "key_code" : "escape"
-          } ]
-        } ]
-      }, {
         "description" : "closer to backspace, '¨' is unused!",
         "manipulators" : [ {
           "from" : {
@@ -828,8 +805,31 @@
           }
         } ]
       }, {
-        "description" : "capslock layer",
+        "description" : "caps-mode for vim hjkl movement and numbers",
         "manipulators" : [ {
+          "to_if_alone" : [ {
+            "key_code" : "escape"
+          } ],
+          "to_after_key_up" : [ {
+            "set_variable" : {
+              "name" : "caps-mode",
+              "value" : 0
+            }
+          } ],
+          "from" : {
+            "key_code" : "caps_lock",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "caps-mode",
+              "value" : 1
+            }
+          } ],
+          "type" : "basic"
+        }, {
           "from" : {
             "key_code" : "h",
             "modifiers" : {
@@ -840,7 +840,7 @@
             "key_code" : "left_arrow"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -856,7 +856,7 @@
             "key_code" : "up_arrow"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -872,7 +872,7 @@
             "key_code" : "down_arrow"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -888,7 +888,7 @@
             "key_code" : "right_arrow"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -904,7 +904,7 @@
             "key_code" : "7"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -920,7 +920,7 @@
             "key_code" : "8"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -936,7 +936,7 @@
             "key_code" : "9"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -952,7 +952,7 @@
             "key_code" : "1"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -968,7 +968,7 @@
             "key_code" : "2"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -984,23 +984,7 @@
             "key_code" : "3"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "z",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "4"
-          } ],
-          "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -1013,10 +997,10 @@
             }
           },
           "to" : [ {
-            "key_code" : "5"
+            "key_code" : "4"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -1029,10 +1013,26 @@
             }
           },
           "to" : [ {
+            "key_code" : "5"
+          } ],
+          "conditions" : [ {
+            "name" : "caps-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "v",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
             "key_code" : "6"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -1048,7 +1048,7 @@
             "key_code" : "0"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -1064,7 +1064,7 @@
             "key_code" : "return_or_enter"
           } ],
           "conditions" : [ {
-            "name" : "caps_mode",
+            "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],

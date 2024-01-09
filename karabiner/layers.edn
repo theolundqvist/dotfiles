@@ -82,11 +82,15 @@
 
 ;; layers are basically "hyper" keys
 ;; press this in combination with something else and depending on your rule, make things happen
-:layers {
-  :caps_mode {:key :caps_lock :alone {:key :escape}} ;; make the caps_lock key the hyper key
-                                                        ;; In "System Preferences/Keyboard/Modifier Keys..."
-                                                        ;; the Caps Lock Key is set to "No Action".
-} ;; layers
+;; :layers {
+;;   :caps_mode 
+;;   {
+;;     :key :caps_lock 
+;;     :alone {:key :escape}
+;;   } ;; make the caps_lock key the hyper key
+;;                                                         ;; In "System Preferences/Keyboard/Modifier Keys..."
+;;                                                         ;; the Caps Lock Key is set to "No Action".
+;; } ;; layers
 
 
 ;; simlayers are basically "hyper" keys
@@ -161,27 +165,33 @@
          ]
   }
 
-  {:des "capslock layer"
-  :rules [:caps_mode
+ {:des "caps-mode for vim hjkl movement and numbers"
+  :rules [
+      [:##caps_lock ["caps-mode" 1] nil 
+         {
+           :afterup ["caps-mode" 0]
+           :alone [:escape]
+         }
+       ]
       ; VIM MODE - hold caps and HJKL
-      [:##h :left_arrow] ; even with f, still do left arrow
-      [:##k :up_arrow]
-      [:##j :down_arrow]
-      [:##l :right_arrow]
+      [:##h :left_arrow ["caps-mode" 1]] 
+      [:##k :up_arrow ["caps-mode" 1]]
+      [:##j :down_arrow ["caps-mode" 1]]
+      [:##l :right_arrow ["caps-mode" 1]]
 
       ;;numbers are closer but still quite natural to type after some practice
-      [:##w :7]
-      [:##e :8]
-      [:##r :9]
-      [:##s :1]
-      [:##d :2]
-      [:##f :3]
-      [:##z :4]
-      [:##x :5]
-      [:##c :6]
-      [:##g :0]
+      [:##w :7 ["caps-mode" 1]]
+      [:##e :8 ["caps-mode" 1]]
+      [:##r :9 ["caps-mode" 1]]
+      [:##s :1 ["caps-mode" 1]]
+      [:##d :2 ["caps-mode" 1]]
+      [:##f :3 ["caps-mode" 1]]
+      [:##x :4 ["caps-mode" 1]]
+      [:##c :5 ["caps-mode" 1]]
+      [:##v :6 ["caps-mode" 1]]
+      [:##g :0 ["caps-mode" 1]]
 
-      [:##spacebar :return_or_enter]
+      [:##spacebar :return_or_enter ["caps-mode" 1]]
     ]
   }
 

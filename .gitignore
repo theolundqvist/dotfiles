@@ -1,4 +1,6 @@
 *.swp
+.gitconfig
+.mono/
 jgit/
 simple-update-notifier/
 iterm2/

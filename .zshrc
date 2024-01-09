@@ -29,7 +29,15 @@ setopt extendedglob
 alias reload_sym="find $HOME -maxdepth 1 -type l -delete; ln -s $CONF/.* $HOME"
 
 # TMUX
-alias tn='tmux new -s `basename $PWD`'
+function tn(){
+  if [ -z "$1" ]
+  then
+    tmux new -s `basename $PWD`
+  else
+    tmux new -d -s $1
+    tmux switch-client -t $1
+  fi
+}
 alias ta='tmux attach'
 alias td='tmux detach'
 function w {
