@@ -61,8 +61,8 @@ key_bindings:
   # Spawn new alacritty instance
   - { key: N,  mods: Command|Control|Shift, action: SpawnNewInstance }
   # forward and back one word
-  - { key: L, mods: Control, chars: "\x1BF" }
-  - { key: H,  mods: Control, chars: "\x1BB" }
+  # - { key: L, mods: Control, chars: "\x1BF" }
+  # - { key: H,  mods: Control, chars: "\x1BB" }
 
   # from John Medeski's config at https://github.com/joshmedeski/dotfiles/blob/main/.config/alacritty/alacritty.yml
   # - { key: C, mods: Command|Shift, chars: "\x02\x20" } # enter thumb mode

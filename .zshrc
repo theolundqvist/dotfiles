@@ -13,6 +13,10 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # PLUGINS 
 
+#DOTNET
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet@6/libexec"
+export PATH="/opt/homebrew/opt/dotnet@6/bin:$PATH"
+
 # VI MODE
 #source $CONF/zsh/zsh-vim.zsh
 setInitialKeyRepeat ()
@@ -120,7 +124,7 @@ alias zip.="zip -r Archive.zip . -x '**/.DS_Store' -x '__MACOSX'"
 alias pip3="python3 -m pip"
 
 # UTIL
-alias tree="tree -I node_modules"
+alias tree="tree -I node_modules -C"
 alias update="brew update && brew upgrade && mas upgrade"
 alias week="date +%V"
 
@@ -141,6 +145,7 @@ alias vig="v .gitignore"
 alias m="make"
 
 alias greloadgitignore="git rm -r --cached . && git add . && gs"
+alias gremoveuntracked='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \$1}" | xargs git branch -d'
 
 alias gcommitall="git commit -am"
 alias gcommit="git commit -m"
@@ -294,6 +299,10 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+
 # pnpm endexport PATH="/opt/homebrew/opt/node@18/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
