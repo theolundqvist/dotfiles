@@ -4,8 +4,10 @@
 :set nowrap
 :1split
 :windo set scrollbind
-:set visualbell
+:set novisualbell
 :set noerrorbells
 :set clipboard^=ideaput
 xnoremap p P
+
+Plug 'tpope/vim-commentary'
 

@@ -11,6 +11,10 @@ export EDITOR="nvim"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 
+# imports
+source $CONF/zsh/bw.zsh
+
+
 # PLUGINS 
 
 #DOTNET
@@ -79,6 +83,7 @@ alias vskhd="nvim $CONF/skhd/skhdrc"
 # alias reload_wm="brew services restart yabai; brew services restart skhd"
 alias vzsh="nvim $CONF/.zshrc"
 alias vconf="nvim $CONF/Makefile"
+alias vinstall="nvim $CONF/Makefile"
 alias confi="(cd $CONF && make install)"
 alias valacritty="nvim $CONF/alacritty/alacritty.yml"
 alias conf="cd $CONF"
@@ -116,6 +121,7 @@ alias finder="open -a finder"
 # ABBREVIATIONS
 alias v="nvim"
 alias c="clear"
+alias sa="sail artisan"
 alias e="exit"
 
 # TOOLS
@@ -129,8 +135,10 @@ alias update="brew update && brew upgrade && mas upgrade"
 alias week="date +%V"
 
 # GIT
+alias g="git"
 alias gweb="gh repo view --web"
 alias gpull="git pull"
+alias gpl="git pull"
 alias gpush="git push"
 alias gpushupstream="git push --set-upstream origin"
 alias gfetch="git fetch"
@@ -174,6 +182,11 @@ alias ls="ls -G"
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+
+
+
+# ngrok
+alias ngrok='ngrok http --domain=evidently-working-gobbler.ngrok-free.app'
 
 # `git` wrapper:
 #
@@ -293,6 +306,7 @@ jenv() {
   esac
 }
 
+
 # pnpm
 export PNPM_HOME="/Users/theo/Library/pnpm"
 case ":$PATH:" in
@@ -307,5 +321,36 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
+
+
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/theo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/theo/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/theo/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/theo/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+
+
+
+
+
+
+
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+

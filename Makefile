@@ -2,9 +2,9 @@ main:
 	@echo "Creating symlinks for dotfiles"
 	@find ~  -maxdepth 1 -type l -delete; 
 	@ln -s ~/dotfiles ~/.config
-	@ln -s ~/dotfiles/nvim-config ~/dotfiles/nvim/lua/custom
 	@ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 	@ln -s ~/dotfiles/tmux ~/.tmux
+	-@ln -s ~/dotfiles/nvim-config ~/dotfiles/nvim/lua/custom
 	-@ln -s ~/dotfiles/.* ~
 	@rm -rf ~/.git
 
@@ -37,31 +37,37 @@ install:
 	bash \
 	coreutils \
 	findutils # xargs -d
-
+	#
 	brew tap arl/arl
 	brew install gitmux
-
+	#
 	brew tap epk/epk
 	brew install --cask font-sf-mono-nerd-font
 	test -d ~/dotfiles/alacritty/catppuccin || git clone https://github.com/catppuccin/alacritty.git ~/dotfiles/alacritty/catppuccin
 	test -d ~/dotfiles/.tmux/plugins/tpm || git clone https://github.com/tmux-plugins/tpm ~/dotfiles/.tmux/plugins/tpm	
-
+	#
 	brew install --cask \
 	alacritty \
 	appcleaner \
-	discord \
 	fig \
-	spotify \
 	visual-studio-code \
 	stats \
 	messenger \
 	docker \
-	karabiner-elements
-
+	karabiner-elements \
+	raycast \
+	shortcat \
+	slack \
+	spotify \
+	phpstorm \
+  # discord 
+	#
+	brew tap FelixKratz/formulae
+	brew install borders
+	#
 	python3 -m pip install aw-client
-
-
-  # volar dependencies for vue
+	#
+	# volar dependencies for vuen 
 	npm install -g @vue/language-server
 	npm install -g typescript
 	npm install -g typescript-language-server
