@@ -46,8 +46,7 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
 # float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 6:4:1:1:2:4 #rows:cols:start-x:start-y:width:height
+alt - t : yabai -m window --toggle float; yabai -m window --grid 20:4:1:1:2:18 #rows:cols:start-x:start-y:width:height
 
 # toggle window split type
 alt - e : yabai -m window --toggle split
@@ -187,7 +186,7 @@ resize < cmd - l : yabai -m window --move rel:25:0
 
 
 # Restart yabai
-shift + alt + ctrl - r : yabai --restart-service
+shift + alt + ctrl - r : skhd --restart-service; yabai --restart-service
 # Toggle yabai
 shift + alt + ctrl - a : yabai -m space --layout bsp
 shift + alt + ctrl - s : yabai -m space --layout stack 
