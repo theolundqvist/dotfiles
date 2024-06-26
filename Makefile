@@ -4,7 +4,9 @@ main:
 	@ln -s ~/dotfiles ~/.config
 	@ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 	@ln -s ~/dotfiles/tmux ~/.tmux
-	-@ln -s ~/dotfiles/nvim-config ~/dotfiles/nvim/lua/custom
+	-@rm ~/dotfiles/nvim/lua/custom
+	@cp -r ~/dotfiles/nvim-config ~/dotfiles/nvim/lua/custom
+	@#ln -s ~/dotfiles/nvim-config ~/dotfiles/nvim/lua/custom
 	-@ln -s ~/dotfiles/.* ~
 	@rm -rf ~/.git
 
@@ -46,24 +48,25 @@ install:
 	test -d ~/dotfiles/alacritty/catppuccin || git clone https://github.com/catppuccin/alacritty.git ~/dotfiles/alacritty/catppuccin
 	test -d ~/dotfiles/.tmux/plugins/tpm || git clone https://github.com/tmux-plugins/tpm ~/dotfiles/.tmux/plugins/tpm	
 	#
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	#
+	brew tap FelixKratz/formulae
+	brew install borders
+	#
 	brew install --cask \
+	raycast \
 	alacritty \
 	appcleaner \
+	karabiner-elements \
 	fig \
 	visual-studio-code \
 	stats \
 	messenger \
 	docker \
-	karabiner-elements \
-	raycast \
 	shortcat \
 	slack \
 	spotify \
-	phpstorm \
-  # discord 
-	#
-	brew tap FelixKratz/formulae
-	brew install borders
+	phpstorm 
 	#
 	python3 -m pip install aw-client
 	#

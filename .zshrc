@@ -15,6 +15,18 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 source $CONF/zsh/bw.zsh
 
 
+
+# ruby env
+eval "$(rbenv init - zsh)"
+
+# go
+export GOPATH="$HOME/go"
+PATH="$GOPATH/bin:$PATH"
+
+
+
+
+
 # PLUGINS 
 
 #DOTNET
@@ -62,7 +74,7 @@ function vt(){
   file="$HOME/.tmux.temp.sh"
   rm -f $file
   tmux capture-pane -pS -1000 > $file
-  tmux new-window -n:edit "vi '+ normal gg } k $' $file"
+  tmux new-window -n:edit "nvim '+ normal gg } k $' $file"
 }
 
 
@@ -87,7 +99,7 @@ alias vinstall="nvim $CONF/Makefile"
 alias confi="(cd $CONF && make install)"
 alias valacritty="nvim $CONF/alacritty/alacritty.yml"
 alias conf="cd $CONF"
-alias reload="source $CONF/.zshrc && echo 'zsh profile reloaded correctly' || echo 'Syntax error, could not import the file'";
+alias reload="source $CONF/.zshrc && echo 'zsh profile reloaded correctly' || echo 'Error, could not import the file'";
 alias todo="v ~/Documents/TODO.md"
 
 alias vkarabiner="nvim $CONF/karabiner/layers.edn"
@@ -171,8 +183,8 @@ alias gr="git root"
 
 ## a quick way to get out of current directory ##
 alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
 alias ls.="ls -d .*"
@@ -283,28 +295,28 @@ function conda-load()
 }
 
 
-eval export PATH="/Users/theo/.jenv/shims:${PATH}"
-export JENV_SHELL=zsh
-export JENV_LOADED=1
-unset JAVA_HOME
-unset JDK_HOME
-source '/opt/homebrew/Cellar/jenv/0.5.6/libexec/libexec/../completions/jenv.zsh'
-jenv rehash 2>/dev/null
-jenv refresh-plugins
-jenv() {
-  type typeset &> /dev/null && typeset command
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  enable-plugin|rehash|shell|shell-options)
-    eval `jenv "sh-$command" "$@"`;;
-  *)
-    command jenv "$command" "$@";;
-  esac
-}
+# eval export PATH="/Users/theo/.jenv/shims:${PATH}"
+# export JENV_SHELL=zsh
+# export JENV_LOADED=1
+# unset JAVA_HOME
+# unset JDK_HOME
+# source '/opt/homebrew/Cellar/jenv/0.5.6/libexec/libexec/../completions/jenv.zsh'
+# jenv rehash 2>/dev/null
+# jenv refresh-plugins
+# jenv() {
+#   type typeset &> /dev/null && typeset command
+#   command="$1"
+#   if [ "$#" -gt 0 ]; then
+#     shift
+#   fi
+# 
+#   case "$command" in
+#   enable-plugin|rehash|shell|shell-options)
+#     eval `jenv "sh-$command" "$@"`;;
+#   *)
+#     command jenv "$command" "$@";;
+#   esac
+# }
 
 
 # pnpm
@@ -328,17 +340,17 @@ alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/theo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/theo/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/theo/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/theo/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/Users/theo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/theo/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/theo/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/theo/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 
 
