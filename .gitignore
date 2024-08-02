@@ -38,3 +38,6 @@ Nuget/
 .templateengine/*
 github-copilot/
 raycast/extensions/
+htop
+yarn/global
+.yarnrc
