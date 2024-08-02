@@ -74,9 +74,8 @@ yabai -m config window_gap                   10
 # # float settings windows
 # yabai -m rule --add title='Settings$' manage=off
 # yabai -m rule --add title='Finder$' manage=off
-
-
-yabai -m rule --add app!="^(WebStorm|PhpStorm|Arc|Alacritty|Messenger|Messages|Discord|Safari|Spotify|Slack|Docker|Linear)$" manage=off
+#
+yabai -m rule --add app!="^(WebStorm|PhpStorm|Arc|Alacritty|Messenger|Messages|Discord|Safari|Spotify|Slack|Docker|Linear|Code)$" manage=off
 
 yabai -m rule --add app=".*" sub-layer=normal
 
@@ -94,6 +93,7 @@ options=(
 	hidpi=off
 	active_color=0xff89b4fa
 	inactive_color=0xaa555555
+  blacklist=Simulator
 )
 
 borders "${options[@]}"
