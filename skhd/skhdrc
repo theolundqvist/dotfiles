@@ -34,6 +34,9 @@ shift + alt + ctrl - l : yabai -m window --warp east
 # rotate tree
 alt - r : yabai -m space --rotate 90
 
+# move mouse to window
+#  alt - m : yabai -m config mouse_foslows_focus on
+
 # toggle window fullscreen zoom
 alt - f : yabai -m window --toggle zoom-fullscreen
 

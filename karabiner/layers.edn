@@ -186,9 +186,9 @@
       [:##s :1 ["caps-mode" 1]]
       [:##d :2 ["caps-mode" 1]]
       [:##f :3 ["caps-mode" 1]]
-      [:##x :4 ["caps-mode" 1]]
-      [:##c :5 ["caps-mode" 1]]
-      [:##v :6 ["caps-mode" 1]]
+      [:##z :4 ["caps-mode" 1]]
+      [:##x :5 ["caps-mode" 1]]
+      [:##c :6 ["caps-mode" 1]]
       [:##g :0 ["caps-mode" 1]]
 
       [:##spacebar :return_or_enter ["caps-mode" 1]]
