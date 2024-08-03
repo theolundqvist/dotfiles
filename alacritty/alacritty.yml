@@ -19,18 +19,6 @@ font:
     style: Regular
   size: 16.0
 
-url:
-    # URL launcher
-    #
-    # This program is executed when clicking on a text which is recognized as a URL.
-    # The URL is always added to the command as the last parameter.
-    #
-    # Default:
-    #   - (macOS) open
-    #   - (Linux) xdg-open
-    #   - (Windows) explorer
-    #launcher: xdg-open
-
 
 keyboard:
   bindings:

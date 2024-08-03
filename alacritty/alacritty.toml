@@ -113,6 +113,7 @@ action = "SpawnNewInstance"
 key = "N"
 mods = "Command|Control|Shift"
 
+# start tmux search mode
 [[keyboard.bindings]]
 chars = "\u0002[/"
 key = "F"
@@ -122,12 +123,6 @@ mods = "Command|Shift"
 chars = "\u0002g"
 key = "G"
 mods = "Command"
-
-[url]
-modifiers = "Command"
-
-[url.launcher]
-program = "open"
 
 [window]
 decorations = "buttonless"
