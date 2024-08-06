@@ -7,6 +7,8 @@ zmodload zsh/zprof
 export PATH="/usr/local/opt/python@3.11/bin:$PATH"
 CONF="$HOME/dotfiles"
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 export EDITOR="nvim"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
