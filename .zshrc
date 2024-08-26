@@ -9,6 +9,7 @@ CONF="$HOME/dotfiles"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
+
 export EDITOR="nvim"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
@@ -16,14 +17,23 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # imports
 source $CONF/zsh/bw.zsh
 
+# load nvm
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# zinit plugins
+source /opt/homebrew/opt/zinit/zinit.zsh
+# zsh-fzf-history-search
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
 
 
 
 # history
 setopt BANG_HIST              # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY       # Write the history file in the ':start:elapsed;command' format.
-setopt SHARE_HISTORY          # Share history between all sessions.
+# setopt SHARE_HISTORY          # Share history between all sessions.
 setopt HIST_EXPIRE_DUPS_FIRST # Expire a duplicate event first when trimming history.
 setopt HIST_IGNORE_DUPS       # Do not record an event that was just recorded again.
 setopt HIST_IGNORE_ALL_DUPS   # Delete an old recorded event if a new event is a duplicate.
