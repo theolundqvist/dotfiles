@@ -79,12 +79,12 @@ mods = "Command"
 [[keyboard.bindings]]
 chars = "\u0002%"
 key = "N"
-mods = "Command|Shift"
+mods = "Command"
 
 [[keyboard.bindings]]
 chars = "\u0002\""
 key = "N"
-mods = "Command"
+mods = "Command|Shift"
 
 [[keyboard.bindings]]
 chars = "\u0002d"
