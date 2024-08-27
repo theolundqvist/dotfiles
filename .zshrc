@@ -151,6 +151,9 @@ alias finder="open -a finder"
 function mkcd() {
   mkdir -p "$1" && cd "$1"
 }
+function count(){
+  ls -l "$@" | wc -l
+}
 
 
 # ABBREVIATIONS
