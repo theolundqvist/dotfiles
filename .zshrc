@@ -1,5 +1,5 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 zmodload zsh/zprof
 
 # Fig pre block. Keep at the top of this file.
@@ -425,9 +425,6 @@ ks() {
 
 
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-
 
 #export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 #export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
@@ -449,3 +446,6 @@ export LS_COLORS
 # bun completions
 [ -s "/Users/theo/.bun/_bun" ] && source "/Users/theo/.bun/_bun"
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
