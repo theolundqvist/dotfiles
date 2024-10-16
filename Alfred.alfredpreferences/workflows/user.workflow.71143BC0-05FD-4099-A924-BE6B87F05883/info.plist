@@ -88,7 +88,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>5E09385F-EE6F-4D81-BEC2-5CB38185B133</string>
+				<string>4AE680C4-7E8F-4294-AFB4-28281570F5A9</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -174,6 +174,29 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>open -a finder ~/Downloads</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>4AE680C4-7E8F-4294-AFB4-28281570F5A9</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -189,19 +212,6 @@
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>CE770012-5644-476B-A813-0AD0FBF3B1BA</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>path</key>
-				<string>~/Downloads</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.revealfile</string>
-			<key>uid</key>
-			<string>5E09385F-EE6F-4D81-BEC2-5CB38185B133</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -489,12 +499,12 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 			<key>ypos</key>
 			<integer>520</integer>
 		</dict>
-		<key>5E09385F-EE6F-4D81-BEC2-5CB38185B133</key>
+		<key>4AE680C4-7E8F-4294-AFB4-28281570F5A9</key>
 		<dict>
 			<key>xpos</key>
-			<integer>665</integer>
+			<integer>640</integer>
 			<key>ypos</key>
-			<integer>200</integer>
+			<integer>195</integer>
 		</dict>
 		<key>682A849F-4C01-4CB2-8A86-A78272C1F886</key>
 		<dict>

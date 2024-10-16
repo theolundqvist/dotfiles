@@ -69,6 +69,45 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>CFB2F94A-DAD3-468B-8F04-108C314D15FE</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>gs</string>
+			<key>text</key>
+			<string>Google Scholar</string>
+			<key>url</key>
+			<string>https://scholar.google.com/scholar?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>D7E82251-A208-447A-A44D-38F1AA425AF9</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>arx</string>
+			<key>text</key>
+			<string>arXiv search</string>
+			<key>url</key>
+			<string>https://arxiv.org/search/cs?query={query}&amp;searchtype=all&amp;abstracts=show&amp;order=-announced_date_first&amp;size=50</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>D9A1F1D6-6387-4A9B-B94D-3EC3F5F8ACD5</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>master thesis hours</string>
+			<key>text</key>
+			<string>Master thesis hours</string>
+			<key>url</key>
+			<string>https://docs.google.com/spreadsheets/d/1w9uNo1qc_CbNDpmFCs5qZztWC70T2-jfuuupUAkfQ2M/edit?gid=555998828#gid=555998828</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 	</dict>
 	<key>onlyShowEnabledInPrefs</key>
 	<true/>
