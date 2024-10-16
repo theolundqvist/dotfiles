@@ -3,45 +3,46 @@ main:
 	@find ~  -maxdepth 1 -type l -delete; 
 	@ln -s ~/dotfiles ~/.config
 	@ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
-	@ln -s ~/dotfiles/tmux ~/.tmux
-	-@rm ~/dotfiles/nvim/lua/custom
-	@cp -r ~/dotfiles/nvim-config ~/dotfiles/nvim/lua/custom
-	@#ln -s ~/dotfiles/nvim-config ~/dotfiles/nvim/lua/custom
+	-@ln -s ~/dotfiles/tmux ~/.tmux
 	-@ln -s ~/dotfiles/.* ~
 	@rm -rf ~/.git
 
+set-key-repeat:
+	defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
+	defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+	defaults write -g ApplePressAndHoldEnabled -bool false
+
 name:
-	sudo scutil --set HostName "M1"
+	#sudo scutil --set HostName "M1"
 
 install:
 	brew install \
 	zoxide \
 	nvim \
 	tmux \
-	esolitos/ipa/sshpass \
 	fzf \
-	gh \
+	#gh \
 	git \
-	iproute2mac \
+	#iproute2mac \
 	koekeishiya/formulae/skhd \
 	koekeishiya/formulae/yabai \
 	neovim \
-	pdfgrep \
+	#pdfgrep \
 	openjdk@11 \
 	python@3.10 \
 	reattach-to-user-namespace \
 	tree \
-	walk \
+	#walk \
 	yqrashawn/goku/goku  \
 	node \
 	anaconda \
-	bkt \
+	#bkt \
 	bash \
 	coreutils \
 	findutils # xargs -d
 	#
-	brew tap arl/arl
-	brew install gitmux
+	#brew tap arl/arl
+	#brew install gitmux
 	#
 	brew tap epk/epk
 	brew install --cask font-sf-mono-nerd-font
@@ -54,25 +55,25 @@ install:
 	brew install borders
 	#
 	brew install --cask \
-	raycast \
+	#raycast \
 	alacritty \
 	appcleaner \
 	karabiner-elements \
-	fig \
+	#fig \
 	visual-studio-code \
-	stats \
-	messenger \
-	docker \
-	shortcat \
-	slack \
-	spotify \
-	phpstorm 
+	#stats \
+	#messenger \
+	#docker \
+	#shortcat \
+	#slack \
+	#spotify \
+	#phpstorm 
 	#
-	python3 -m pip install aw-client
+	#python3 -m pip install aw-client
 	#
 	# volar dependencies for vuen 
-	npm install -g @vue/language-server
-	npm install -g typescript
-	npm install -g typescript-language-server
+	#npm install -g @vue/language-server
+	#npm install -g typescript
+	#npm install -g typescript-language-server
 
 
