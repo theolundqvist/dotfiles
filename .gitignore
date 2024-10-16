@@ -41,3 +41,5 @@ raycast/extensions/
 htop
 yarn/global
 .yarnrc
+ngrok/ngrok.yml
+.nuxtrc

@@ -238,7 +238,7 @@ alias diff='diff --color=auto'
 
 
 # ngrok
-alias ngrok='ngrok http --domain=evidently-working-gobbler.ngrok-free.app'
+alias port_forward='ngrok http --domain=evidently-working-gobbler.ngrok-free.app'
 
 # `git` wrapper:
 #
@@ -351,7 +351,7 @@ function conda-load()
 }
 
 # ruby env
-eval "$(rbenv init - zsh)"
+# eval "$(rbenv init - zsh)"
 
 # go
 export GOPATH="$HOME/go"
