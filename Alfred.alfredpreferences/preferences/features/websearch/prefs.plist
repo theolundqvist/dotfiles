@@ -69,6 +69,21 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>AB54261D-2163-4BE7-B553-AE334F5C786D</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>osm</string>
+			<key>spaces</key>
+			<string>/</string>
+			<key>text</key>
+			<string>osm {query}</string>
+			<key>url</key>
+			<string>https://www.openstreetmap.org/#map=19/{query}&amp;layers=G</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>CFB2F94A-DAD3-468B-8F04-108C314D15FE</key>
 		<dict>
 			<key>enabled</key>
