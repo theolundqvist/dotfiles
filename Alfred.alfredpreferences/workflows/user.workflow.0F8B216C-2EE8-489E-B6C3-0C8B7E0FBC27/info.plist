@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>connections</key>
+	<dict>
+		<key>16039760-F173-4AB8-9C73-DA7401D5DE23</key>
+		<array/>
+		<key>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string></string>
+	<key>description</key>
+	<string></string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>tile workflows</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>tiletocoord</string>
+				<key>subtext</key>
+				<string>Translate {z}_{x}_{y} to lat/long</string>
+				<key>text</key>
+				<string>Tile to coord</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>9CF5AA59-C797-4BA3-80CF-A3BB86F866E3</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>query="{query}"
+
+#!/bin/bash
+
+# Ensure the query variable is set
+if [ -z "$query" ]; then
+  echo "Error: \$query variable is not set."
+  echo "Usage examples:"
+  echo "  query=\"10_512_384\" $0"
+  echo "  query=\"10 512 384\" $0"
+  echo "  query=\"10/512/384\" $0"
+  exit 1
+fi
+
+# Parse the query into z, x, y using IFS with delimiters '_', '/', and space
+IFS=' _/' read -r z x y &lt;&lt;&lt; "$query"
+
+# Function to check if a value is a non-negative integer
+is_non_negative_integer() {
+  [[ "$1" =~ ^[0-9]+$ ]]
+}
+
+# Validate z
+if ! is_non_negative_integer "$z"; then
+  echo "Error: Zoom level (z) is not a non-negative integer."
+  exit 1
+fi
+
+# Validate x
+if ! is_non_negative_integer "$x"; then
+  echo "Error: Tile x value is not a non-negative integer."
+  exit 1
+fi
+
+# Validate y
+if ! is_non_negative_integer "$y"; then
+  echo "Error: Tile y value is not a non-negative integer."
+  exit 1
+fi
+
+# Define minimum and maximum zoom levels
+MIN_ZOOM_LEVEL=0
+MAX_ZOOM_LEVEL=22
+
+# Check zoom level range
+if [ "$z" -lt "$MIN_ZOOM_LEVEL" ] || [ "$z" -gt "$MAX_ZOOM_LEVEL" ]; then
+  echo "Error: Zoom level (z) is out of range [$MIN_ZOOM_LEVEL, $MAX_ZOOM_LEVEL]."
+  exit 1
+fi
+
+# Calculate maximum x and y based on zoom level
+maxXY=$((2 ** z - 1))
+
+# Check x and y ranges
+if [ "$x" -lt 0 ] || [ "$x" -gt "$maxXY" ]; then
+  echo "Error: Tile x value is out of range [0, $maxXY]."
+  exit 1
+fi
+
+if [ "$y" -lt 0 ] || [ "$y" -gt "$maxXY" ]; then
+  echo "Error: Tile y value is out of range [0, $maxXY]."
+  exit 1
+fi
+
+# Function to perform floating point calculations using bc
+# Usage: bc_calc "expression"
+bc_calc() {
+  echo "scale=15; $1" | bc -l
+}
+
+# Constants
+PI=$(bc_calc "4*a(1)")
+TWO_PI=$(bc_calc "2 * $PI")
+EXP() {
+  # Calculate e^x using bc
+  # bc doesn't have a built-in exponent function, so use a Taylor series or other approximation
+  # For simplicity, we'll use awk for exponentiation
+  awk "BEGIN {print exp($1)}"
+}
+
+# Calculate longitude
+# lon = (x / 2^z) * 360.0 - 180.0
+lon=$(bc_calc "($x / (2^$z)) * 360.0 - 180.0")
+
+# Calculate n = PI - (2 * PI * y) / 2^z
+n=$(bc_calc "$PI - ($TWO_PI * $y) / (2^$z)")
+
+# Calculate e^n and e^-n using awk
+e_n=$(EXP "$n")
+e_neg_n=$(EXP " -$n")
+
+# Calculate latitude
+# lat = (180.0 / PI) * atan(0.5 * (e^n - e^-n))
+# Since bc doesn't have atan, we'll use awk for the arctangent calculation
+# Define the expression inside atan
+expr_lat=$(echo "0.5 * ($e_n - $e_neg_n)" | bc -l)
+# Calculate atan in radians using awk, then convert to degrees
+atan_value=$(awk "BEGIN {print atan($expr_lat)}")
+lat=$(awk "BEGIN {print (180.0 / $PI) * $atan_value}")
+
+# Output the result as lat/lon
+echo "$lat/$lon"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>16039760-F173-4AB8-9C73-DA7401D5DE23</key>
+		<dict>
+			<key>xpos</key>
+			<integer>270</integer>
+			<key>ypos</key>
+			<integer>50</integer>
+		</dict>
+		<key>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>50</integer>
+		</dict>
+		<key>9CF5AA59-C797-4BA3-80CF-A3BB86F866E3</key>
+		<dict>
+			<key>xpos</key>
+			<integer>655</integer>
+			<key>ypos</key>
+			<integer>50</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

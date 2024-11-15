@@ -56,6 +56,19 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>7447759C-3BA3-4503-8C3C-0BDAF1D49905</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>jobbsök</string>
+			<key>text</key>
+			<string>jobbsök google sheets</string>
+			<key>url</key>
+			<string>https://docs.google.com/spreadsheets/d/1ceZ8VNs9qb8tEZmV0DBRhMYpxTQnfgJQTrp7aTUigZc/edit?gid=423239745#gid=423239745</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>8A3BF57A-0EEA-4E24-8698-3FF94CE06C48</key>
 		<dict>
 			<key>enabled</key>
@@ -80,7 +93,7 @@
 			<key>text</key>
 			<string>osm {query}</string>
 			<key>url</key>
-			<string>https://www.openstreetmap.org/#map=19/{query}&amp;layers=G</string>
+			<string>https://www.openstreetmap.org/#map=19/{query}</string>
 			<key>utf8</key>
 			<true/>
 		</dict>
