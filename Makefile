@@ -13,7 +13,7 @@ set-key-repeat:
 	defaults write -g ApplePressAndHoldEnabled -bool false
 
 name:
-	#sudo scutil --set HostName "M1"
+	sudo scutil --set HostName "FDM-M4"
 
 install:
 	brew install \
@@ -24,12 +24,12 @@ install:
 	#gh \
 	git \
 	#iproute2mac \
-	koekeishiya/formulae/skhd \
-	koekeishiya/formulae/yabai \
+	#koekeishiya/formulae/skhd \
+	#koekeishiya/formulae/yabai \
 	neovim \
 	#pdfgrep \
-	openjdk@11 \
-	python@3.10 \
+	#openjdk@11 \
+	#python@3.10 \
 	reattach-to-user-namespace \
 	tree \
 	#walk \
@@ -51,8 +51,8 @@ install:
 	#
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	#
-	brew tap FelixKratz/formulae
-	brew install borders
+	#brew tap FelixKratz/formulae
+	#brew install borders
 	#
 	brew install --cask \
 	#raycast \
