@@ -5,15 +5,17 @@
 	<key>finderSelectionHotkey</key>
 	<dict>
 		<key>key</key>
-		<integer>39</integer>
+		<integer>31</integer>
 		<key>mod</key>
-		<integer>1310720</integer>
+		<integer>1048576</integer>
 		<key>string</key>
-		<string>Ä</string>
+		<string>O</string>
 	</dict>
 	<key>showWithCtrl</key>
 	<false/>
 	<key>showWithFn</key>
+	<false/>
+	<key>showWithRightArrow</key>
 	<false/>
 	<key>sortByUsage</key>
 	<true/>

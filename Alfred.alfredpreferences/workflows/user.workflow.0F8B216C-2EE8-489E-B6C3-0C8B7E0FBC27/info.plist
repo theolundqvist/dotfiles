@@ -6,9 +6,139 @@
 	<string></string>
 	<key>connections</key>
 	<dict>
+		<key>0DB232E8-E168-490C-A0C9-4B8CB4B4AB67</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C02A282D-72C4-4DF4-8DB8-E2BAF98EC09F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>10296C58-5A5E-44CB-A2D3-A5B3201AA2AE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D486DAB7-ED02-4923-92A1-E769D1B23BF6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>16039760-F173-4AB8-9C73-DA7401D5DE23</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9CF5AA59-C797-4BA3-80CF-A3BB86F866E3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>2017272C-7D94-42E2-91E0-1C1C75C685A1</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3F4876CE-9DA8-4755-B0FB-08E9CF1394BC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>37918BA5-E1B6-4A45-8744-B85812684135</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2017272C-7D94-42E2-91E0-1C1C75C685A1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>3F4876CE-9DA8-4755-B0FB-08E9CF1394BC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B2F81B54-14F9-4572-8A1A-59886D13DE33</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>22E5CB21-EEEB-4C9C-9C47-A521AE4F9130</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>696C8342-898A-4001-AD8C-CE2D4477979A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>F51C6876-1F1C-4DDE-88FB-D79C45C3CE63</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>0DB232E8-E168-490C-A0C9-4B8CB4B4AB67</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>7AD5FD85-C16A-48F2-883A-6949756FC20F</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>4947792B-81E1-4353-A376-43BCC6FB63DB</key>
 		<array/>
-		<key>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</key>
+		<key>4957B9CA-C880-444A-9FCD-916DB2CACC69</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>37918BA5-E1B6-4A45-8744-B85812684135</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>696C8342-898A-4001-AD8C-CE2D4477979A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>10296C58-5A5E-44CB-A2D3-A5B3201AA2AE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B2F81B54-14F9-4572-8A1A-59886D13DE33</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -19,6 +149,32 @@
 				<string></string>
 				<key>vitoclose</key>
 				<false/>
+			</dict>
+		</array>
+		<key>C02A282D-72C4-4DF4-8DB8-E2BAF98EC09F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4947792B-81E1-4353-A376-43BCC6FB63DB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D3A1740E-3ECC-480D-A1FF-174DDAAC5995</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4957B9CA-C880-444A-9FCD-916DB2CACC69</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<true/>
 			</dict>
 		</array>
 	</dict>
@@ -32,27 +188,6 @@
 	<string>tile workflows</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>tiletocoord</string>
-				<key>subtext</key>
-				<string>Translate {z}_{x}_{y} to lat/long</string>
-				<key>text</key>
-				<string>Tile to coord</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -78,116 +213,102 @@
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>68</integer>
 				<key>script</key>
-				<string>query="{query}"
+				<string>import sys
 
-#!/bin/bash
+query = "{query}"
 
-# Ensure the query variable is set
-if [ -z "$query" ]; then
-  echo "Error: \$query variable is not set."
-  echo "Usage examples:"
-  echo "  query=\"10_512_384\" $0"
-  echo "  query=\"10 512 384\" $0"
-  echo "  query=\"10/512/384\" $0"
-  exit 1
-fi
 
-# Parse the query into z, x, y using IFS with delimiters '_', '/', and space
-IFS=' _/' read -r z x y &lt;&lt;&lt; "$query"
 
-# Function to check if a value is a non-negative integer
-is_non_negative_integer() {
-  [[ "$1" =~ ^[0-9]+$ ]]
-}
 
-# Validate z
-if ! is_non_negative_integer "$z"; then
-  echo "Error: Zoom level (z) is not a non-negative integer."
-  exit 1
-fi
+#!/usr/bin/env python3
 
-# Validate x
-if ! is_non_negative_integer "$x"; then
-  echo "Error: Tile x value is not a non-negative integer."
-  exit 1
-fi
+import os
+import sys
+import math
+import re
 
-# Validate y
-if ! is_non_negative_integer "$y"; then
-  echo "Error: Tile y value is not a non-negative integer."
-  exit 1
-fi
+def parse_query(query):
+    """
+    Parses the query string and extracts z, x, y.
+    Accepts formats: z_x_y, z x y, z/x/y
+    """
+    # Use regular expression to split by '_', '/', or space
+    parts = re.split(r'[_/\s]+', query.strip())
+    if len(parts) != 3:
+        raise ValueError("Invalid query format. Expected formats: 'z_x_y', 'z x y', or 'z/x/y'.")
+    try:
+        z, x, y = map(int, parts)
+    except ValueError:
+        raise ValueError("z, x, and y must be integers.")
+    return z, x, y
 
-# Define minimum and maximum zoom levels
-MIN_ZOOM_LEVEL=0
-MAX_ZOOM_LEVEL=22
+def validate_inputs(z, x, y, min_zoom=0, max_zoom=22):
+    """
+    Validates the z, x, y values.
+    """
+    if not (min_zoom &lt;= z &lt;= max_zoom):
+        raise ValueError(f"Zoom level (z) is out of range [{min_zoom}, {max_zoom}].")
+    max_xy = (2 ** z) - 1
+    if not (0 &lt;= x &lt;= max_xy):
+        raise ValueError(f"Tile x value is out of range [0, {max_xy}].")
+    if not (0 &lt;= y &lt;= max_xy):
+        raise ValueError(f"Tile y value is out of range [0, {max_xy}].")
 
-# Check zoom level range
-if [ "$z" -lt "$MIN_ZOOM_LEVEL" ] || [ "$z" -gt "$MAX_ZOOM_LEVEL" ]; then
-  echo "Error: Zoom level (z) is out of range [$MIN_ZOOM_LEVEL, $MAX_ZOOM_LEVEL]."
-  exit 1
-fi
+def tile_zxy_to_latlon(z, x, y):
+    """
+    Converts tile z, x, y to latitude and longitude.
+    Returns a tuple (lat, lon).
+    """
+    # Calculate longitude
+    lon = (x / (2 ** z)) * 360.0 - 180.0
+    
+    # Calculate latitude
+    n = math.pi - (2.0 * math.pi * y) / (2 ** z)
+    lat_rad = math.atan(math.sinh(n))
+    lat = math.degrees(lat_rad)
+    
+    return lat, lon
 
-# Calculate maximum x and y based on zoom level
-maxXY=$((2 ** z - 1))
+def main():
+    # Retrieve the 'query' environment variable
+    if not query:
+        print("Error: 'query' environment variable is not set.", file=sys.stderr)
+        print("Usage examples:", file=sys.stderr)
+        print("  query='10_512_384' python3 tile_to_latlon.py", file=sys.stderr)
+        print("  query='10 512 384' python3 tile_to_latlon.py", file=sys.stderr)
+        print("  query='10/512/384' python3 tile_to_latlon.py", file=sys.stderr)
+        sys.exit(1)
+    
+    try:
+        # Parse the query
+        z, x, y = parse_query(query)
+        
+        # Validate inputs
+        validate_inputs(z, x, y)
+        
+        # Convert to lat/lon
+        lat, lon = tile_zxy_to_latlon(z, x, y)
+        
+        # Output the result
+        print(f"{lat:.6f}/{lon:.6f}")
+        
+    except ValueError as ve:
+        print(f"Error: {ve}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"Unexpected error: {e}", file=sys.stderr)
+        sys.exit(1)
 
-# Check x and y ranges
-if [ "$x" -lt 0 ] || [ "$x" -gt "$maxXY" ]; then
-  echo "Error: Tile x value is out of range [0, $maxXY]."
-  exit 1
-fi
-
-if [ "$y" -lt 0 ] || [ "$y" -gt "$maxXY" ]; then
-  echo "Error: Tile y value is out of range [0, $maxXY]."
-  exit 1
-fi
-
-# Function to perform floating point calculations using bc
-# Usage: bc_calc "expression"
-bc_calc() {
-  echo "scale=15; $1" | bc -l
-}
-
-# Constants
-PI=$(bc_calc "4*a(1)")
-TWO_PI=$(bc_calc "2 * $PI")
-EXP() {
-  # Calculate e^x using bc
-  # bc doesn't have a built-in exponent function, so use a Taylor series or other approximation
-  # For simplicity, we'll use awk for exponentiation
-  awk "BEGIN {print exp($1)}"
-}
-
-# Calculate longitude
-# lon = (x / 2^z) * 360.0 - 180.0
-lon=$(bc_calc "($x / (2^$z)) * 360.0 - 180.0")
-
-# Calculate n = PI - (2 * PI * y) / 2^z
-n=$(bc_calc "$PI - ($TWO_PI * $y) / (2^$z)")
-
-# Calculate e^n and e^-n using awk
-e_n=$(EXP "$n")
-e_neg_n=$(EXP " -$n")
-
-# Calculate latitude
-# lat = (180.0 / PI) * atan(0.5 * (e^n - e^-n))
-# Since bc doesn't have atan, we'll use awk for the arctangent calculation
-# Define the expression inside atan
-expr_lat=$(echo "0.5 * ($e_n - $e_neg_n)" | bc -l)
-# Calculate atan in radians using awk, then convert to degrees
-atan_value=$(awk "BEGIN {print atan($expr_lat)}")
-lat=$(awk "BEGIN {print (180.0 / $PI) * $atan_value}")
-
-# Output the result as lat/lon
-echo "$lat/$lon"</string>
+if __name__ == "__main__":
+    main()</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>9</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
@@ -196,33 +317,610 @@ echo "$lat/$lon"</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{var:tile}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>B2F81B54-14F9-4572-8A1A-59886D13DE33</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>fixedorder</key>
+				<true/>
+				<key>items</key>
+				<string>[{"title":"Plot Bbox","arg":"plotbbox","subtitle":"Plot bounding box in geojson"},{"title":"z14","arg":"z14","subtitle":"Get parent tile in zoom 14"},{"title":"Latlon","arg":"latlon","subtitle":"Get lat and lon"}]</string>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>subtext</key>
+				<string>What would you like to do?</string>
+				<key>title</key>
+				<string>Choose an option</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.listfilter</string>
+			<key>uid</key>
+			<string>37918BA5-E1B6-4A45-8744-B85812684135</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>tile</string>
+				<key>subtext</key>
+				<string>tile {z}_{x}_{y}</string>
+				<key>text</key>
+				<string>Tile utilities</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>D3A1740E-3ECC-480D-A1FF-174DDAAC5995</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>import sys
+from typing import Tuple, List
+
+query = "{query}"
+
+
+
+#!/usr/bin/env python3
+
+import os
+import sys
+import math
+import re
+
+def parse_query(query):
+    """
+    Parses the query string and extracts z, x, y.
+    Accepts formats: z_x_y, z x y, z/x/y
+    """
+    # Use regular expression to split by '_', '/', or space
+    parts = re.split(r'[_/\s]+', query.strip())
+    if len(parts) != 3:
+        raise ValueError("Invalid query format. Expected formats: 'z_x_y', 'z x y', or 'z/x/y'.")
+    try:
+        z, x, y = map(int, parts)
+    except ValueError:
+        raise ValueError("z, x, and y must be integers.")
+    return z, x, y
+
+def validate_inputs(z, x, y, min_zoom=0, max_zoom=22):
+    """
+    Validates the z, x, y values.
+    """
+    if not (min_zoom &lt;= z &lt;= max_zoom):
+        raise ValueError(f"Zoom level (z) is out of range [{min_zoom}, {max_zoom}].")
+    max_xy = (2 ** z) - 1
+    if not (0 &lt;= x &lt;= max_xy):
+        raise ValueError(f"Tile x value is out of range [0, {max_xy}].")
+    if not (0 &lt;= y &lt;= max_xy):
+        raise ValueError(f"Tile y value is out of range [0, {max_xy}].")
+
+def get_parent_tile(x, y, current_z=16, parent_z=14) -&gt; Tuple[int, int]:
+    assert current_z &gt; parent_z
+    # zoom 16 -&gt; zoom 14
+    zoom_diff = current_z - parent_z
+    # Convert coordinates
+    parent_x = x // (2 ** zoom_diff)
+    parent_y = y // (2 ** zoom_diff)
+    return parent_x, parent_y
+
+def main():
+    # Retrieve the 'query' environment variable
+    if not query:
+        print("Error: 'query' environment variable is not set.", file=sys.stderr)
+        print("Usage examples:", file=sys.stderr)
+        print("  query='10_512_384' python3 tile_to_latlon.py", file=sys.stderr)
+        print("  query='10 512 384' python3 tile_to_latlon.py", file=sys.stderr)
+        print("  query='10/512/384' python3 tile_to_latlon.py", file=sys.stderr)
+        sys.exit(1)
+    
+    try:
+        # Parse the query
+        z, x, y = parse_query(query)
+        
+        # Validate inputs
+        validate_inputs(z, x, y)
+        
+        # Convert to lat/lon
+        x, y = get_parent_tile(x, y)
+        
+        # Output the result
+        print(f"14_{x}_{y}")
+        
+    except ValueError as ve:
+        print(f"Error: {ve}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"Unexpected error: {e}", file=sys.stderr)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>9</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>10296C58-5A5E-44CB-A2D3-A5B3201AA2AE</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>D486DAB7-ED02-4923-92A1-E769D1B23BF6</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:option}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>latlon</string>
+						<key>outputlabel</key>
+						<string>Latlon</string>
+						<key>uid</key>
+						<string>22E5CB21-EEEB-4C9C-9C47-A521AE4F9130</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:option}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>z14</string>
+						<key>outputlabel</key>
+						<string>Z14</string>
+						<key>uid</key>
+						<string>F51C6876-1F1C-4DDE-88FB-D79C45C3CE63</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:option}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>plotbbox</string>
+						<key>outputlabel</key>
+						<string>Plot bbox</string>
+						<key>uid</key>
+						<string>7AD5FD85-C16A-48F2-883A-6949756FC20F</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>unknown</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>3F4876CE-9DA8-4755-B0FB-08E9CF1394BC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>option</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>2017272C-7D94-42E2-91E0-1C1C75C685A1</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>tile</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>4957B9CA-C880-444A-9FCD-916DB2CACC69</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{var:tile}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>696C8342-898A-4001-AD8C-CE2D4477979A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{var:tile}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>0DB232E8-E168-490C-A0C9-4B8CB4B4AB67</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>#!/usr/bin/env python3
+
+import os
+import sys
+import math
+import re
+import json
+import urllib.parse
+
+
+query = "{query}"
+
+def parse_query(query):
+    """
+    Parses the query string and extracts z, x, y.
+    Accepts formats: z_x_y, z x y, z/x/y
+    """
+    # Use regular expression to split by '_', '/', or space
+    parts = re.split(r'[_/\s]+', query.strip())
+    if len(parts) != 3:
+        raise ValueError("Invalid query format. Expected formats: 'z_x_y', 'z x y', or 'z/x/y'.")
+    try:
+        z, x, y = map(int, parts)
+    except ValueError:
+        raise ValueError("z, x, and y must be integers.")
+    return z, x, y
+
+def validate_inputs(z, x, y, min_zoom=0, max_zoom=22):
+    """
+    Validates the z, x, y values.
+    """
+    if not (min_zoom &lt;= z &lt;= max_zoom):
+        raise ValueError(f"Zoom level (z) is out of range [{min_zoom}, {max_zoom}].")
+    max_xy = (2 ** z) - 1
+    if not (0 &lt;= x &lt;= max_xy):
+        raise ValueError(f"Tile x value is out of range [0, {max_xy}].")
+    if not (0 &lt;= y &lt;= max_xy):
+        raise ValueError(f"Tile y value is out of range [0, {max_xy}].")
+
+def tile_zxy_to_bbox(z, x, y):
+    """
+    Converts tile z, x, y to a bounding box.
+    Returns a tuple (lat1, lon1, lat2, lon2).
+    """
+    lon1 = (x / (2 ** z)) * 360.0 - 180.0
+    n1 = math.pi - (2.0 * math.pi * y) / (2 ** z)
+    lat1 = math.degrees(math.atan(math.sinh(n1)))
+
+    lon2 = ((x + 1) / (2 ** z)) * 360.0 - 180.0
+    n2 = math.pi - (2.0 * math.pi * (y + 1)) / (2 ** z)
+    lat2 = math.degrees(math.atan(math.sinh(n2)))
+
+    return lat1, lon1, lat2, lon2
+
+def create_geojson_bbox(lat1, lon1, lat2, lon2):
+    """
+    Creates a GeoJSON Polygon representing the bounding box.
+    """
+    geojson = {
+        "type": "Polygon",
+        "coordinates": [[
+            [lon1, lat1],
+            [lon2, lat1],
+            [lon2, lat2],
+            [lon1, lat2],
+            [lon1, lat1]
+        ]]
+    }
+    return geojson
+
+def main():
+    # Retrieve the 'query' environment variable
+    if not query:
+        print("Error: 'query' environment variable is not set.", file=sys.stderr)
+        print("Usage examples:", file=sys.stderr)
+        print("  query='10_512_384' python3 tile_to_geojson_url.py", file=sys.stderr)
+        print("  query='10 512 384' python3 tile_to_geojson_url.py", file=sys.stderr)
+        print("  query='10/512/384' python3 tile_to_geojson_url.py", file=sys.stderr)
+        sys.exit(1)
+    
+    try:
+        # Parse the query
+        z, x, y = parse_query(query)
+        
+        # Validate inputs
+        validate_inputs(z, x, y)
+        
+        # Convert to bounding box
+        lat1, lon1, lat2, lon2 = tile_zxy_to_bbox(z, x, y)
+        
+        # Create GeoJSON for the bounding box
+        geojson_bbox = create_geojson_bbox(lat1, lon1, lat2, lon2)
+        
+        # Serialize GeoJSON to a JSON string
+        geojson_str = json.dumps(geojson_bbox)
+        
+       
+        # Construct the geojson.io URL
+        print(geojson_str)
+        
+       
+        
+    except ValueError as ve:
+        print(f"Error: {ve}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"Unexpected error: {e}", file=sys.stderr)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>9</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C02A282D-72C4-4DF4-8DB8-E2BAF98EC09F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<true/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://geojson.io/#data=data:application/json,{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>4947792B-81E1-4353-A376-43BCC6FB63DB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>0DB232E8-E168-490C-A0C9-4B8CB4B4AB67</key>
+		<dict>
+			<key>xpos</key>
+			<real>725</real>
+			<key>ypos</key>
+			<real>430</real>
+		</dict>
+		<key>10296C58-5A5E-44CB-A2D3-A5B3201AA2AE</key>
+		<dict>
+			<key>xpos</key>
+			<real>840</real>
+			<key>ypos</key>
+			<real>285</real>
+		</dict>
 		<key>16039760-F173-4AB8-9C73-DA7401D5DE23</key>
 		<dict>
+			<key>note</key>
+			<string>TileToLatLon</string>
 			<key>xpos</key>
-			<integer>270</integer>
+			<real>800</real>
 			<key>ypos</key>
-			<integer>50</integer>
+			<real>90</real>
 		</dict>
-		<key>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</key>
+		<key>2017272C-7D94-42E2-91E0-1C1C75C685A1</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>4</integer>
+			<key>note</key>
+			<string>Save option in {var:option}</string>
+			<key>xpos</key>
+			<real>475</real>
+			<key>ypos</key>
+			<real>310</real>
+		</dict>
+		<key>37918BA5-E1B6-4A45-8744-B85812684135</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>xpos</key>
+			<real>300</real>
+			<key>ypos</key>
+			<real>280</real>
+		</dict>
+		<key>3F4876CE-9DA8-4755-B0FB-08E9CF1394BC</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>5</integer>
+			<key>note</key>
+			<string>6. The Conditional utility allows you to decide which path the workflow should take, based on whether the query should be appended, or the list opened.</string>
+			<key>xpos</key>
+			<real>586</real>
+			<key>ypos</key>
+			<real>300</real>
+		</dict>
+		<key>4947792B-81E1-4353-A376-43BCC6FB63DB</key>
 		<dict>
 			<key>xpos</key>
-			<integer>50</integer>
+			<real>1040</real>
 			<key>ypos</key>
-			<integer>50</integer>
+			<real>435</real>
+		</dict>
+		<key>4957B9CA-C880-444A-9FCD-916DB2CACC69</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>2</integer>
+			<key>note</key>
+			<string>Save tile in {var:tile}</string>
+			<key>xpos</key>
+			<real>200</real>
+			<key>ypos</key>
+			<real>310</real>
+		</dict>
+		<key>696C8342-898A-4001-AD8C-CE2D4477979A</key>
+		<dict>
+			<key>xpos</key>
+			<real>735</real>
+			<key>ypos</key>
+			<real>335</real>
 		</dict>
 		<key>9CF5AA59-C797-4BA3-80CF-A3BB86F866E3</key>
 		<dict>
 			<key>xpos</key>
-			<integer>655</integer>
+			<real>975</real>
 			<key>ypos</key>
-			<integer>50</integer>
+			<real>85</real>
+		</dict>
+		<key>B2F81B54-14F9-4572-8A1A-59886D13DE33</key>
+		<dict>
+			<key>xpos</key>
+			<real>720</real>
+			<key>ypos</key>
+			<real>155</real>
+		</dict>
+		<key>C02A282D-72C4-4DF4-8DB8-E2BAF98EC09F</key>
+		<dict>
+			<key>xpos</key>
+			<real>845</real>
+			<key>ypos</key>
+			<real>435</real>
+		</dict>
+		<key>D3A1740E-3ECC-480D-A1FF-174DDAAC5995</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>280</real>
+		</dict>
+		<key>D486DAB7-ED02-4923-92A1-E769D1B23BF6</key>
+		<dict>
+			<key>xpos</key>
+			<real>1045</real>
+			<key>ypos</key>
+			<real>285</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.0</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>

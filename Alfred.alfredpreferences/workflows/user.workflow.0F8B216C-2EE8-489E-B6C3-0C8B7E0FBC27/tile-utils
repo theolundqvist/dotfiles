@@ -1,0 +1,266 @@
+#!/usr/bin/osascript -l JavaScript
+
+ObjC.import('Foundation')
+
+/**
+ * Helper function to output JSON to Alfred
+ * @param {Array} items - Array of items to display
+ */
+function output(items) {
+  const json = JSON.stringify({ items: items })
+  console.log(json)
+}
+
+/**
+ * Parses the query string and extracts z, x, y.
+ * Accepts formats: z_x_y, z x y, z/x/y
+ * @param {string} query
+ * @returns {Array} [z, x, y]
+ */
+function parseQuery(query) {
+  const parts = query.trim().split(/[_/\s]+/)
+  if (parts.length !== 3) {
+    throw new Error("Invalid format. Use 'z_x_y', 'z x y', or 'z/x/y'.")
+  }
+  const [z, x, y] = parts.map(Number)
+  if ([z, x, y].some(isNaN)) {
+    throw new Error("z, x, and y must be integers.")
+  }
+  return [z, x, y]
+}
+
+/**
+ * Validates the z, x, y values.
+ * @param {number} z
+ * @param {number} x
+ * @param {number} y
+ */
+function validateInputs(z, x, y, minZoom = 0, maxZoom = 22) {
+  if (z < minZoom || z > maxZoom) {
+    throw new Error(`Zoom level (z) must be between ${minZoom} and ${maxZoom}.`)
+  }
+  const maxXY = Math.pow(2, z) - 1
+  if (x < 0 || x > maxXY) {
+    throw new Error(`Tile x must be between 0 and ${maxXY}.`)
+  }
+  if (y < 0 || y > maxXY) {
+    throw new Error(`Tile y must be between 0 and ${maxXY}.`)
+  }
+}
+
+/**
+ * Converts tile z, x, y to latitude and longitude.
+ * @param {number} z
+ * @param {number} x
+ * @param {number} y
+ * @returns {Array} [lat, lon]
+ */
+function tileZXYToLatLon(z, x, y) {
+  const n = Math.PI - (2 * Math.PI * y) / Math.pow(2, z)
+  const lat = (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)))
+  const lon = (x / Math.pow(2, z)) * 360 - 180
+  return [lat, lon]
+}
+
+/**
+ * Converts tile z, x, y to bounding box.
+ * @param {number} z
+ * @param {number} x
+ * @param {number} y
+ * @returns {Object} {lat1, lon1, lat2, lon2}
+ */
+function tileZXYToBBox(z, x, y) {
+  const [lat1, lon1] = tileZXYToLatLon(z, x, y)
+  const [lat2, lon2] = tileZXYToLatLon(z, x + 1, y + 1)
+  return { lat1, lon1, lat2, lon2 }
+}
+
+/**
+ * Creates a GeoJSON Polygon for the bounding box.
+ * @param {Object} bbox
+ * @returns {Object} GeoJSON Polygon
+ */
+function createGeoJSON(bbox) {
+  const { lat1, lon1, lat2, lon2 } = bbox
+  return {
+    type: "Polygon",
+    coordinates: [[
+      [lon1, lat1],
+      [lon2, lat1],
+      [lon2, lat2],
+      [lon1, lat2],
+      [lon1, lat1]
+    ]]
+  }
+}
+
+/**
+ * Encodes GeoJSON for URL
+ * @param {Object} geojson
+ * @returns {string} Encoded GeoJSON
+ */
+function encodeGeoJSON(geojson) {
+  const jsonString = JSON.stringify(geojson)
+  return encodeURIComponent(jsonString)
+}
+
+/**
+ * Main function to handle Alfred input and output
+ */
+function run(argv) {
+  const input = argv[0] || ""
+  
+  // If no additional arguments, show the three options
+  if (input === "") {
+    const items = [
+      {
+        title: "Convert to Latitude/Longitude",
+        subtitle: "Convert tile coordinates (z/x/y) to lat/lon",
+        arg: "latlon",
+        valid: false,
+        icon: { path: "icons/latlon.png" } // Add appropriate icon
+      },
+      {
+        title: "Calculate Bounding Box",
+        subtitle: "Get bounding box of the tile and open in geojson.io",
+        arg: "bbox",
+        valid: false,
+        icon: { path: "icons/bbox.png" } // Add appropriate icon
+      },
+      {
+        title: "Zoom Level 14 Action",
+        subtitle: "Perform action related to zoom level 14",
+        arg: "z14",
+        valid: false,
+        icon: { path: "icons/z14.png" } // Add appropriate icon
+      }
+    ]
+    output(items)
+    return
+  }
+
+  // Split input to get the selected option
+  const [option, ...rest] = input.split(" ")
+  
+  // Depending on the option, perform different actions
+  switch(option) {
+    case "latlon":
+      handleLatLon(rest)
+      break
+    case "bbox":
+      handleBBox(rest)
+      break
+    case "z14":
+      handleZ14(rest)
+      break
+    default:
+      output([{
+        title: "Unknown Option",
+        subtitle: "Please select a valid option: latlon, bbox, z14",
+        valid: false
+      }])
+  }
+}
+
+/**
+ * Handles the 'latlon' option
+ * @param {Array} args
+ */
+function handleLatLon(args) {
+  const query = args.join(" ")
+  
+  if (query === "") {
+    // Prompt user to enter z/x/y
+    output([{
+      title: "Enter Tile Coordinates",
+      subtitle: "Format: z/x/y (e.g., 10/512/384)",
+      valid: false
+    }])
+    return
+  }
+  
+  try {
+    const [z, x, y] = parseQuery(query)
+    validateInputs(z, x, y)
+    const [lat, lon] = tileZXYToLatLon(z, x, y)
+    output([{
+      title: `Latitude: ${lat.toFixed(6)}`,
+      subtitle: `Longitude: ${lon.toFixed(6)}`,
+      arg: `${lat.toFixed(6)}, ${lon.toFixed(6)}`,
+      valid: true
+    }])
+  } catch (error) {
+    output([{
+      title: "Error",
+      subtitle: error.message,
+      valid: false
+    }])
+  }
+}
+
+/**
+ * Handles the 'bbox' option
+ * @param {Array} args
+ */
+function handleBBox(args) {
+  const query = args.join(" ")
+  
+  if (query === "") {
+    // Prompt user to enter z/x/y
+    output([{
+      title: "Enter Tile Coordinates",
+      subtitle: "Format: z/x/y (e.g., 10/512/384)",
+      valid: false
+    }])
+    return
+  }
+  
+  try {
+    const [z, x, y] = parseQuery(query)
+    validateInputs(z, x, y)
+    const bbox = tileZXYToBBox(z, x, y)
+    const geojson = createGeoJSON(bbox)
+    const encodedGeoJSON = encodeGeoJSON(geojson)
+    const geojsonURL = `http://geojson.io/#data=data:application/json,${encodedGeoJSON}`
+    
+    output([{
+      title: "Open Bounding Box in geojson.io",
+      subtitle: geojsonURL,
+      arg: geojsonURL,
+      valid: true
+    }])
+  } catch (error) {
+    output([{
+      title: "Error",
+      subtitle: error.message,
+      valid: false
+    }])
+  }
+}
+
+/**
+ * Handles the 'z14' option
+ * @param {Array} args
+ */
+function handleZ14(args) {
+  // Assuming 'z14' is a specific action related to zoom level 14
+  // Modify this function based on actual requirements
+  
+  // Example: Provide a link to zoom level 14 on geojson.io for a default location
+  const defaultGeoJSON = {
+    type: "FeatureCollection",
+    features: []
+  }
+  const encodedGeoJSON = encodeGeoJSON(defaultGeoJSON)
+  const geojsonURL = `http://geojson.io/#map=14/0.0/0.0&data=data:application/json,${encodedGeoJSON}`
+  
+  output([{
+    title: "Open Zoom Level 14 in geojson.io",
+    subtitle: geojsonURL,
+    arg: geojsonURL,
+    valid: true
+  }])
+}
+
+// Run the main function with the provided arguments
+run($.NSProcessInfo.processInfo.arguments.js.slice(4))

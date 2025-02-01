@@ -84,19 +84,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>CE770012-5644-476B-A813-0AD0FBF3B1BA</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>4AE680C4-7E8F-4294-AFB4-28281570F5A9</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>F9ECEF07-FF19-4064-B026-5EE13CAD12FF</key>
 		<array>
 			<dict>
@@ -174,50 +161,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>open -a finder ~/Downloads</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>4AE680C4-7E8F-4294-AFB4-28281570F5A9</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>downloads</string>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string>Open Downloads folder</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>CE770012-5644-476B-A813-0AD0FBF3B1BA</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
@@ -241,12 +184,14 @@
 			<dict>
 				<key>browser</key>
 				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
 				<string>https://www.thesaurus.com/browse/{query}</string>
-				<key>utf8</key>
-				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -281,12 +226,14 @@
 			<dict>
 				<key>browser</key>
 				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
 				<string>https://www.synonymer.se/sv-syn/{query}</string>
-				<key>utf8</key>
-				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -338,12 +285,14 @@
 			<dict>
 				<key>browser</key>
 				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
 				<string>http://tma.main.jp/logic/logic.php?lang=en&amp;type=bin&amp;bin={query}</string>
-				<key>utf8</key>
-				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -399,12 +348,14 @@
 			<dict>
 				<key>browser</key>
 				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
 				<string>https://www.hitta.se/sök?vad={query}</string>
-				<key>utf8</key>
-				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -439,12 +390,14 @@
 			<dict>
 				<key>browser</key>
 				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
 				<string>https://chatgpt.ddiu.me/</string>
-				<key>utf8</key>
-				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -463,23 +416,23 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 		<key>0E551D2C-5F2D-49F9-A530-B35605D6727F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>95</integer>
+			<real>95</real>
 			<key>ypos</key>
-			<integer>310</integer>
+			<real>310</real>
 		</dict>
 		<key>35E79C7B-7CDF-4589-9735-72FFA513CF64</key>
 		<dict>
 			<key>xpos</key>
-			<integer>490</integer>
+			<real>490</real>
 			<key>ypos</key>
-			<integer>450</integer>
+			<real>450</real>
 		</dict>
 		<key>3DB67A07-6D91-4CDA-9BBC-B1435836C750</key>
 		<dict>
 			<key>xpos</key>
-			<integer>255</integer>
+			<real>255</real>
 			<key>ypos</key>
-			<integer>415</integer>
+			<real>415</real>
 		</dict>
 		<key>3E554F3A-9D95-4D8B-9797-FDE6FDA14DCD</key>
 		<dict>
@@ -488,51 +441,44 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 			<key>note</key>
 			<string>1. Add a keyword object by right-clicking the canvas and choosing Inputs &gt; Keyword. Set the keyword and title to show it in Alfred's results.</string>
 			<key>xpos</key>
-			<integer>50</integer>
+			<real>50</real>
 			<key>ypos</key>
-			<integer>50</integer>
+			<real>50</real>
 		</dict>
 		<key>4376D296-6449-42F7-81B4-38A2195CDE75</key>
 		<dict>
 			<key>xpos</key>
-			<integer>255</integer>
+			<real>255</real>
 			<key>ypos</key>
-			<integer>520</integer>
-		</dict>
-		<key>4AE680C4-7E8F-4294-AFB4-28281570F5A9</key>
-		<dict>
-			<key>xpos</key>
-			<integer>640</integer>
-			<key>ypos</key>
-			<integer>195</integer>
+			<real>520</real>
 		</dict>
 		<key>682A849F-4C01-4CB2-8A86-A78272C1F886</key>
 		<dict>
 			<key>xpos</key>
-			<integer>255</integer>
+			<real>255</real>
 			<key>ypos</key>
-			<integer>310</integer>
+			<real>310</real>
 		</dict>
 		<key>6F4C305A-D68B-4873-BE63-E03DC628378F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>665</integer>
+			<real>665</real>
 			<key>ypos</key>
-			<integer>450</integer>
+			<real>450</real>
 		</dict>
 		<key>8DCE99C3-3220-48B0-906C-D4B667370130</key>
 		<dict>
 			<key>xpos</key>
-			<integer>255</integer>
+			<real>255</real>
 			<key>ypos</key>
-			<integer>735</integer>
+			<real>735</real>
 		</dict>
 		<key>8E31EB6E-139C-46EF-94CC-CB283510DFA7</key>
 		<dict>
 			<key>xpos</key>
-			<integer>95</integer>
+			<real>95</real>
 			<key>ypos</key>
-			<integer>625</integer>
+			<real>625</real>
 		</dict>
 		<key>945EDF1B-3F3A-4F72-9B74-D21613073E82</key>
 		<dict>
@@ -543,46 +489,41 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 
 3. In Alfred's search, type the keyword "large" followed by text and press return to show it in Large Type on your screen.</string>
 			<key>xpos</key>
-			<integer>310</integer>
+			<real>310</real>
 			<key>ypos</key>
-			<integer>50</integer>
+			<real>50</real>
 		</dict>
 		<key>965E9AA7-BD7A-4C8E-9FE3-C214214D45CB</key>
 		<dict>
 			<key>xpos</key>
-			<integer>95</integer>
+			<real>95</real>
 			<key>ypos</key>
-			<integer>520</integer>
+			<real>520</real>
 		</dict>
 		<key>CA09A081-86F1-4474-A6D0-52CDAF45BBCB</key>
 		<dict>
 			<key>xpos</key>
-			<integer>95</integer>
+			<real>95</real>
 			<key>ypos</key>
-			<integer>735</integer>
-		</dict>
-		<key>CE770012-5644-476B-A813-0AD0FBF3B1BA</key>
-		<dict>
-			<key>xpos</key>
-			<integer>490</integer>
-			<key>ypos</key>
-			<integer>200</integer>
+			<real>735</real>
 		</dict>
 		<key>DD3BF07A-B6BE-4CD4-BA8D-5340BA1DC1EE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>255</integer>
+			<real>255</real>
 			<key>ypos</key>
-			<integer>625</integer>
+			<real>625</real>
 		</dict>
 		<key>F9ECEF07-FF19-4064-B026-5EE13CAD12FF</key>
 		<dict>
 			<key>xpos</key>
-			<integer>95</integer>
+			<real>95</real>
 			<key>ypos</key>
-			<integer>415</integer>
+			<real>415</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>version</key>
 	<string>1.0</string>
 	<key>webaddress</key>

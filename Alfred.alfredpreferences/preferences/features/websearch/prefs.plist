@@ -69,6 +69,17 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>7D5C3D4D-1B0E-4371-9354-9921E4405AB8</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>overpass</string>
+			<key>text</key>
+			<string>overpass turbo</string>
+			<key>url</key>
+			<string>https://overpass-turbo.eu/</string>
+		</dict>
 		<key>8A3BF57A-0EEA-4E24-8698-3FF94CE06C48</key>
 		<dict>
 			<key>enabled</key>

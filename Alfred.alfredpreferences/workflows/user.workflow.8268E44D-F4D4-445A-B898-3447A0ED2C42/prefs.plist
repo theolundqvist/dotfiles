@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bibtex_library_path</key>
+	<string>~/Documents/courses/current/master-thesis/references.bib</string>
+	<key>match_year_type</key>
+	<string>short+full</string>
+	<key>pdf_folder</key>
+	<string>~/Zotero/storage</string>
+</dict>
+</plist>
