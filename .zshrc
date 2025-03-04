@@ -3,6 +3,10 @@
 zmodload zsh/zprof
 
 # Fig pre block. Keep at the top of this file.
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/Users/theo/.cargo/bin:$PATH"
+export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
+
 
 export PATH="/usr/local/opt/python@3.11/bin:$PATH"
 CONF="$HOME/dotfiles"
@@ -20,9 +24,9 @@ alias please="sudo"
 source $CONF/zsh/bw.zsh
 
 # load nvm
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # zinit plugins
 source /opt/homebrew/opt/zinit/zinit.zsh
@@ -344,7 +348,7 @@ zstyle ':completion:*' menu select=2
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-function conda-load()
+function load-conda()
 {
   echo "sourcing anaconda"
 # export PATH="/opt/homebrew/anaconda3/bin:$PATH"  # commented out by conda initialize
@@ -378,20 +382,6 @@ alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
 
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 
 
@@ -450,3 +440,12 @@ export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/theo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/theo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/theo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/theo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+. "$HOME/.local/bin/env"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

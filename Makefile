@@ -15,6 +15,13 @@ set-key-repeat:
 name:
 	sudo scutil --set HostName "FDM-M4"
 
+install-yabai:
+	brew install \
+	koekeishiya/formulae/skhd \
+	koekeishiya/formulae/yabai
+	brew tap FelixKratz/formulae
+	brew install borders
+
 install:
 	brew install \
 	zoxide \
@@ -24,8 +31,6 @@ install:
 	#gh \
 	git \
 	#iproute2mac \
-	#koekeishiya/formulae/skhd \
-	#koekeishiya/formulae/yabai \
 	neovim \
 	#pdfgrep \
 	#openjdk@11 \
@@ -51,8 +56,6 @@ install:
 	#
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	#
-	#brew tap FelixKratz/formulae
-	#brew install borders
 	#
 	brew install --cask \
 	#raycast \

@@ -43,3 +43,9 @@ yarn/global
 .yarnrc
 ngrok/ngrok.yml
 .nuxtrc
+gcloud/configurations
+gcloud/logs
+gcloud/virtenv
+gcloud
+uv/uv-receipt.json
+fish/conf.d/uv.env.fish
