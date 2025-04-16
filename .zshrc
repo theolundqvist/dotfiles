@@ -102,6 +102,19 @@ function vt(){
   tmux new-window -n:edit "nvim '+ normal gg } k $' $file"
 }
 
+function nb() {
+    # Ensure the scratch directory exists
+    if [ ! -d "scratch" ]; then
+        mkdir "scratch"
+    fi
+
+    # Create or update a symbolic link in the scratch directory
+    ln -sf "$CONF/zsh/new-notebook.py" "scratch/new-notebook.py"
+
+    # Run the symlinked Python script
+    python3 "scratch/new-notebook.py"
+}
+
 
 # Use vim as the default editor
 # But still use emacs-style zsh bindings
@@ -110,6 +123,7 @@ bindkey -e
 #source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # ALIASES
+
 
 # COPY PASTE
 alias cpc="pbcopy < "

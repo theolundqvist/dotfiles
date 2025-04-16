@@ -75,7 +75,7 @@ yabai -m config window_gap                   10
 # yabai -m rule --add title='Settings$' manage=off
 # yabai -m rule --add title='Finder$' manage=off
 #
-yabai -m rule --add app!="^(WebStorm|PhpStorm|Arc|Alacritty|Messenger|Messages|Discord|Safari|Spotify|Slack|Docker|Linear|Code)$" manage=off
+yabai -m rule --add app!="^(WebStorm|PhpStorm|Arc|Alacritty|Messenger|Messages|Discord|Safari|Spotify|Slack|Docker|Linear|Code|Cursor)$" manage=off
 
 yabai -m rule --add app=".*" sub-layer=normal
 
