@@ -187,6 +187,7 @@ alias e="exit"
 alias idea='open -na "IntelliJ IDEA.app" --args "$@"'
 alias zip.="zip -r Archive.zip . -x '**/.DS_Store' -x '__MACOSX'"
 alias pip3="python3 -m pip"
+#alias python="/opt/homebrew/bin/python3"
 
 # UTIL
 alias tree="tree -I node_modules -C"
@@ -452,14 +453,12 @@ export LS_COLORS
 [ -s "/Users/theo/.bun/_bun" ] && source "/Users/theo/.bun/_bun"
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/theo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/theo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/theo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/theo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-. "$HOME/.local/bin/env"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# # Amazon Q post block. Keep at the bottom of this file.
+# [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+#
+# # The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/Users/theo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/theo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+#
+# # The next line enables shell command completion for gcloud.
+# if [ -f '/Users/theo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/theo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+#

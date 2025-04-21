@@ -13,7 +13,7 @@ set-key-repeat:
 	defaults write -g ApplePressAndHoldEnabled -bool false
 
 name:
-	sudo scutil --set HostName "FDM-M4"
+	sudo scutil --set HostName "THEO-M1"
 
 install-yabai:
 	brew install \
@@ -28,48 +28,49 @@ install:
 	nvim \
 	tmux \
 	fzf \
-	#gh \
 	git \
-	#iproute2mac \
+	gh \
 	neovim \
-	#pdfgrep \
-	#openjdk@11 \
-	#python@3.10 \
 	reattach-to-user-namespace \
 	tree \
-	#walk \
 	yqrashawn/goku/goku  \
 	node \
 	anaconda \
-	#bkt \
 	bash \
 	coreutils \
-	findutils # xargs -d
-	#
+	findutils 
+	# xargs -d
+	#iproute2mac \
+	#walk \
+	#pdfgrep \
+	#openjdk@11 \
+	#python@3.10 \
+	#bkt \
 	#brew tap arl/arl
 	#brew install gitmux
-	#
+
 	brew tap epk/epk
 	brew install --cask font-sf-mono-nerd-font
 	test -d ~/dotfiles/alacritty/catppuccin || git clone https://github.com/catppuccin/alacritty.git ~/dotfiles/alacritty/catppuccin
 	test -d ~/dotfiles/.tmux/plugins/tpm || git clone https://github.com/tmux-plugins/tpm ~/dotfiles/.tmux/plugins/tpm	
 	#
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	#
 	#
 	brew install --cask \
-	#raycast \
+	raycast \
 	alacritty \
 	appcleaner \
 	karabiner-elements \
 	#fig \
 	visual-studio-code \
 	#stats \
-	#messenger \
+	messenger \
 	#docker \
+	orbstack \
 	#shortcat \
-	#slack \
-	#spotify \
+	slack \
+	spotify
 	#phpstorm 
 	#
 	#python3 -m pip install aw-client
