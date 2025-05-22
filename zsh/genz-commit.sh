@@ -13,7 +13,8 @@ set -euo pipefail
 # -----------------------------------------------------------------------------
 
 MODEL="gemini-2.5-flash-preview-05-20"
-THINKING_BUDGET=200
+# first arg or 200
+THINKING_BUDGET=${1:-200}
 
 if [[ -z "${GEMINI_API_KEY:-}" ]]; then
   echo "Error: GEMINI_API_KEY is not set." >&2
