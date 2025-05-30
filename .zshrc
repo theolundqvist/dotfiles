@@ -9,6 +9,19 @@ export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
 
 export PATH="/usr/local/opt/python@3.11/bin:$PATH"
 CONF="$HOME/dotfiles"
+
+renv() {
+  local env_file=${1:-".env"}
+  if [[ -f "$env_file" ]]; then
+    set -a # automatically export all variables
+    source "$env_file"
+    echo "Environment variables from $env_file have been loaded and exported."
+    set +a # disable auto-export
+  else
+    echo "Error: $env_file not found."
+  fi
+}
+
 # Source and export environment variables from .env file
 if [ -f "$CONF/.env" ]; then
   set -a # automatically export all variables
@@ -397,10 +410,39 @@ export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/theo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/theo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/theo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/theo/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/theo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/theo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/theo/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/theo/google-cloud-sdk/completion.zsh.inc'; fi
 
 . "$HOME/.local/bin/env"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/theo/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/theo/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/theo/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/theo/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/Users/theo/miniforge3/bin/mamba';
+export MAMBA_ROOT_PREFIX='/Users/theo/miniforge3';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
