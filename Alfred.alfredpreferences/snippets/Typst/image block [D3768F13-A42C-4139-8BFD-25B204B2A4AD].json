@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "#figure(image(\"{cursor}\", width: 50%))",
+    "uid" : "D3768F13-A42C-4139-8BFD-25B204B2A4AD",
+    "name" : "image block",
+    "keyword" : "img"
+  }
+}

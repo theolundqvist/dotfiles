@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "#figure(image(\"images\/{cursor}\", width: 50%), caption: [])",
+    "uid" : "B50F92CA-7AA8-4E0D-A2DB-E0690D120DB0",
+    "name" : "Image Figure",
+    "keyword" : "ifig"
+  }
+}

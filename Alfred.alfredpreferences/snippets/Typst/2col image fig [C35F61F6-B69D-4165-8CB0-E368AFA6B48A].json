@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "#figure(\n    stack(dir: ltr,\n        image(\"images\/{cursor}\", width: 50%), \n        h(10pt),\n        image(\"images\/\", width: 50%), \n    ),\ncaption: [])",
+    "uid" : "C35F61F6-B69D-4165-8CB0-E368AFA6B48A",
+    "name" : "2col image fig",
+    "keyword" : "2ifig"
+  }
+}

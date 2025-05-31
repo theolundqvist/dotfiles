@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "#table(columns: 2, inset: 0pt, stroke: 0pt,\n[\n\n],[\n\n])",
+    "uid" : "A64E948F-FF2A-4AD8-BA3F-B8E1CA79BACC",
+    "name" : "Two column table",
+    "keyword" : "2col"
+  }
+}
