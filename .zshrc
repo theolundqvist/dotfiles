@@ -131,6 +131,7 @@ bindkey -e
 #source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # ALIASES
+#
 
 # COPY PASTE
 alias cpc="pbcopy < "
@@ -180,6 +181,21 @@ function mkcd() {
 }
 function count() {
   ls -l "$@" | wc -l
+}
+function mkinit() {
+  dir="${1:-$PWD}"
+  echo
+  echo "🔨 Creating __init__.py in $dir"
+  echo
+  uvx mkinit "${dir}/__init__.py" || return
+  echo 
+  response=""
+  read "response?Do you want to write this file to ${dir}/__init__.py? [Y/n] "
+  echo
+  if [[ "$response" =~ ^[Yy]$ || -z "$response" ]]; then
+    uvx mkinit "${dir}/__init__.py" -w || (echo "Failed to write __init__.py" && return 1)
+    echo "✅ Wrote $dir/__init__.py"
+  fi
 }
 
 # ABBREVIATIONS
