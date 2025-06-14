@@ -37,7 +37,7 @@ alt - r : yabai -m space --rotate 90
 # move mouse to window
 #  alt - m : yabai -m config mouse_foslows_focus on
 
-# toggle window fullscreen zoom
+# toggle window fullscreen zoom (FIXME: should work when window is floating as well)
 alt - f : yabai -m window --toggle zoom-fullscreen
 
 # alt - s : yabai -m window --toggle 
@@ -50,6 +50,9 @@ alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
 # float / unfloat window and center on screen
 alt - t : yabai -m window --toggle float; yabai -m window --grid 20:4:1:1:2:18 
+# unfloat/float all windows
+# ????
+# ????
 #rows:cols:start-x:start-y:width:height
 alt - c : yabai -m window --toggle float; yabai -m window --grid 20:8:3:4:2:10
 
