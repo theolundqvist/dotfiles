@@ -26,6 +26,7 @@ if [[ -z "$diff" ]]; then
   echo "No staged changes to commit."
   exit 0
 fi
+diff+=$(git status)
 
 PROMPT=$(
   cat <<'EOF'
@@ -39,12 +40,12 @@ Specification
 A gitmoji commit message consists is composed using the following pieces:
 
 intention: The intention you want to express with the commit, using an emoji from the list. Either in the :shortcode: or unicode format.
-scope: An optional string that adds contextual information for the scope of the change.
+scope: An optional (but prefer having it) string that adds contextual information for the scope of the change. 
 message: A brief explanation of the change.
 <intention> [scope?][:?] <message>
 
 
-Examples
+Some examples
 ⚡️ Lazyload home screen images.
 🐛 Fix `onClick` event handler
 🔖 Bump version `1.2.0`
@@ -53,20 +54,29 @@ Examples
 🌐 Support Japanese language
 ♿️ (account): Improve modals a11y
 
-Scan the diff to choose the emoji matching the change.
-Write an Effective Subject Line
+1. Scan the diff and git status message.
+2. Think hard about the diff to understand the semantic change that has been made
+3. Choose the emoji best matching the change from the list below, read the description of the emoji in order to decide.
+4. Include a Scope If 
+  •	If the change targets a specific module or component: (api), (auth), (ui), etc. 
+  • IMPORTANT: Dont use file extensions in the scope, 
+  • IMPORTANT: Use general highest-level semantic module names as scope
+	•	Scope helps others locate and understand the changes.
+  • Try to always include a scope if possible without making the commit message hard to understand.
+5. Write an Effective Subject Line
 	•	≤ 50 characters (excluding emoji and scope).
 	•	Use imperative mood (“Add,” not “Added” or “Adding”).
 	•	Present tense (“Fix bug,” not “Fixed bug”).
 	•	No trailing period.
-Include a Scope When Helpful
-	•	If the change targets a specific module or component: (api), (auth), (ui), etc.
-	•	Helps others locate affected area quickly.
-Keep It Atomic
-	•	One logical change per commit.
-	•	Split unrelated changes into multiple commits for clarity.
 
-These are the available gitmoji codes and the intent of each (ONLY EVER USE ONE OF THESE):
+
+IMPORTANT: only ever use one of the existing emojis, and take care to use the right character/unicode.
+These are the available gitmoji codes and the intent of each:
+
+<emoji_entry>
+EMOJI :shortcode:
+Description of when to use the emoji
+</emoji_entry>
 
 🎨 :art:
 Improve structure / format of the code.
@@ -293,32 +303,31 @@ Improve offline support.
 Diff:
 EOF
 )
-PROMPT+=$'\n'"$diff"
 
-request_body=$(jq -nc --arg txt "$PROMPT" --arg thinkingBudget "$THINKING_BUDGET" '{
-  contents: [
-    {
-      parts: [
-        { text: $txt }
-      ]
-    }
+request_body=$(jq -nc --arg system_prompt "$PROMPT" --arg diff "$diff" '{
+  "model": "qwen/qwen2.5-coder-14b",
+  "messages": [
+    { role: "system", content: $system_prompt },
+    { role: "user", content: $diff }
   ],
-  "generationConfig": {
-    "thinkingConfig": {
-      "thinkingBudget": $thinkingBudget
-    }
-  }
+  "temperature": 0.3,
+  "max_tokens": 50,
+  "stream": false
 }')
+# echo $request_body
 
 echo ...
 # https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference
 response=$(curl -sS \
   -H "Content-Type: application/json" \
-  -X POST "https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}" \
+  -X POST "http://127.0.0.1:1234/v1/chat/completions" \
   -d "$request_body")
+  #-X POST "https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}" \
+
+# echo $response
 
 commit_msg=$(printf '%s' "$response" |
-  jq -r '.candidates[0].content.parts[0].text // empty' |
+  jq -r '.choices[0].message.content // empty' |
   sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
 
 if [[ -z "$commit_msg" ]]; then
