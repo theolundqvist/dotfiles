@@ -9,3 +9,8 @@ else
 endif
 # <<< conda initialize <<<
 
+
+# Added by LM Studio CLI (lms)
+setenv PATH "$PATH:/Users/theo/.lmstudio/bin"
+# End of LM Studio CLI section
+
