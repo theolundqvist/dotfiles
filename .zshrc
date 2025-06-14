@@ -36,6 +36,12 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 alias please="sudo"
 
+FDM_MONO="$HOME/Documents/fdm/TownSquare"
+dev_ingest() { ( cd $FDM_MONO/fdm_scrap_chef && ENVIRONMENT=dev POSTGRES_HOST=localhost POSTGRES_PORT=5433 uv run python -m scrap_chef_ingest $1 all ) }
+dev_upgrade() { ( cd $FDM_MONO/fdm_scrap_chef/backend/tenant_db && POSTGRES_HOST=localhost POSTGRES_PORT=5433 uv run alembic -x tenant=$1 upgrade head ) }
+dev_downgrade() { ( cd $FDM_MONO/fdm_scrap_chef/backend/tenant_db && POSTGRES_HOST=localhost POSTGRES_PORT=5433 uv run alembic -x tenant=$1 downgrade $2 ) }
+
+
 # imports
 source $CONF/zsh/bw.zsh
 
@@ -187,13 +193,13 @@ function mkinit() {
   echo
   echo "🔨 Creating __init__.py in $dir"
   echo
-  uvx mkinit "${dir}/__init__.py" || return
+  uvx mkinit "${dir}" || return
   echo 
   response=""
-  read "response?Do you want to write this file to ${dir}/__init__.py? [Y/n] "
+  read "response?Do you want to write this file to ${dir}? [Y/n] "
   echo
   if [[ "$response" =~ ^[Yy]$ || -z "$response" ]]; then
-    uvx mkinit "${dir}/__init__.py" -w || (echo "Failed to write __init__.py" && return 1)
+    uvx mkinit "${dir}" -w || (echo "Failed to write __init__.py" && return 1)
     echo "✅ Wrote $dir/__init__.py"
   fi
 }
@@ -462,3 +468,8 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/theo/.lmstudio/bin"
+# End of LM Studio CLI section
+
