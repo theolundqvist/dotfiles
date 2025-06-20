@@ -60,20 +60,22 @@ install:
 	#
 	#
 	brew install --cask \
+	alfred \
 	raycast \
 	alacritty \
 	appcleaner \
 	karabiner-elements \
-	#fig \
+	chatgpt \
+	spotify \
+	cursor \
+	zulip \
+	arc \
 	visual-studio-code \
-	#stats \
-	messenger \
-	#docker \
 	orbstack \
-	#shortcat \
-	slack \
-	spotify
-	#phpstorm 
+	messenger \
+	whatsapp \
+	telegram \
+	slack
 	#
 	#python3 -m pip install aw-client
 	#
