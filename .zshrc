@@ -137,7 +137,6 @@ bindkey -e
 #source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # ALIASES
-#
 
 # COPY PASTE
 alias cpc="pbcopy < "
@@ -215,8 +214,6 @@ alias idea='open -na "IntelliJ IDEA.app" --args "$@"'
 alias zip.="zip -r Archive.zip . -x '**/.DS_Store' -x '__MACOSX'"
 alias pip3="python3 -m pip"
 #alias python="/opt/homebrew/bin/python3"
-
-# UTIL
 alias tree="tree -I node_modules -C"
 alias update="brew update && brew upgrade && mas upgrade"
 alias week="date +%V"

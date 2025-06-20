@@ -50,3 +50,4 @@ gcloud/virtenv
 gcloud
 uv/uv-receipt.json
 fish/conf.d/uv.env.fish
+.wrangler
